@@ -4,7 +4,7 @@ metadata:
   labels:
     app: test-deployment
   name: test-deplo
-  namespace: defautl
+  namespace: default
 spec:
   replicas: 1
   selector:
