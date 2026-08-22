@@ -38,7 +38,7 @@ spec:
       labels:
         app.kubernetes.io/name: homarr
         app.kubernetes.io/instance: homarr
-        app.kubernetes.io/version: "v1.75.0"
+        app.kubernetes.io/version: "v1.76.0"
     spec:
       securityContext:
         {}
@@ -47,7 +47,7 @@ spec:
         - name: homarr
           securityContext:
             {}
-          image: "ghcr.io/homarr-labs/homarr:v1.75.0"
+          image: "ghcr.io/homarr-labs/homarr:v1.76.0"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
