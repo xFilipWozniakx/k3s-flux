@@ -13,7 +13,7 @@ spec:
     - name: app
       port: 8080
       protocol: TCP
-      targetPort: http
+      targetPort: 7575
   selector:
     app.kubernetes.io/name: homarr
     app.kubernetes.io/instance: homarr
@@ -52,7 +52,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 7575
               protocol: TCP
           livenessProbe:
             failureThreshold: 3
