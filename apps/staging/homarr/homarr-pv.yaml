@@ -4,7 +4,7 @@ metadata:
   annotations:
   labels:
     type: local
-  name: homar-db
+  name: homarr-db
 spec:
   accessModes:
   - ReadWriteOnce
