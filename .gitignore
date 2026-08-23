@@ -2,3 +2,4 @@ apps/staging/homarr/secret_homarr.yaml
 apps/staging/homarr/secret_value
 apps/staging/homarr/values.yaml
 apps/staging/homarr/info
+apps/staging/cloudflared/secret.yaml
