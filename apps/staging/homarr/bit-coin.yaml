@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bitcoin_api
+  name: bitcoin-api
   namespace: homarr
 spec:
   replicas: 1
@@ -15,6 +15,6 @@ spec:
       labels:
         app: bitcoin
       containers:
-        - name: bitcoin_api
+        - name: bitcoin-api
           image: "ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.2"
           imagePullPolicy: IfNotPresent
