@@ -26,13 +26,8 @@ spec:
         - name: config
           mountPath: "/etc/ntfy"
           readOnly: true
-      # add alpine from ghcr.io and setup notifications
-      # not before adding secruity rules + certificats
-      #- name: alpine
-      #  image: alpin
       volumes:
         - name: config
           configMap:
             name: ntfy
- 
 
