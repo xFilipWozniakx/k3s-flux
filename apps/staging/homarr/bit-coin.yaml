@@ -21,5 +21,4 @@ spec:
         - name: bitcoin-api
           image: ghcr.io/xfilipwozniakx/bitcoin_api:latest
           imagePullPolicy: IfNotPresent
-          command: ["script"]
 
