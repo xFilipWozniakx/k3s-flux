@@ -4,11 +4,10 @@ metadata:
   name: ntfy
 spec:
   ipFamilyPolicy: SingleStack
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: ntfy
   ports:
   - port: 8081
     name: main-port
     targetPort: 80
----
