@@ -16,7 +16,7 @@ spec:
         app: bitcoin
     spec:
       imagePullSecrets:
-        - ghcr-creds
+        - name: ghcr-creds
       containers:
         - name: bitcoin-api
           image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.2
