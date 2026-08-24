@@ -36,15 +36,24 @@ spec:
         - name: bitcoin-api
           image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.4
           imagePullPolicy: IfNotPresent
+          volumeMount:
+          - name: shared-directory
+            emptyDir: {}
         - name: nginx
-          image: nginx:1.31.4 
+          image: nginx:alpine
           imagePullPolicy: IfNotPresent
           volumeMounth:
           - name: main-config
             mountPath: "/etc/nginx/nginx.conf"
             readOnly: true
+          - name: shared-directory
+            mountPath: /usr/share/nginx/html 
+          ports: 
+            - containerPort: 8080
       volumes:
       - name: main-config
         hostPath:
           path: /data/kubernetes-pv/nginx/nginx.conf 
           type: File
+      - name: shared-directory
+        emptyDir: {}
