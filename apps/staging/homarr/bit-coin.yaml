@@ -33,12 +33,14 @@ spec:
       imagePullSecrets:
         - name: ghcr-creds
       containers:
+        
         - name: bitcoin-api
-          image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.55
+          image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.56
           imagePullPolicy: IfNotPresent
           volumeMount:
           - name: shared-directory
-            emptyDir: {}
+            emptyDir: /api
+        
         - name: nginx
           image: nginx:alpine
           imagePullPolicy: IfNotPresent
