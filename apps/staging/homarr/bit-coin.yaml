@@ -10,10 +10,8 @@ spec:
   ports:
     - name: external
       port: 8082
-      targetPort: 80
+      targetPort: 8080
       protocol: TCP
-
-      # not finished
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -36,6 +34,6 @@ spec:
         - name: ghcr-creds
       containers:
         - name: bitcoin-api
-          image: ghcr.io/xfilipwozniakx/bitcoin_api:latest
+          image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.4
           imagePullPolicy: IfNotPresent
 
