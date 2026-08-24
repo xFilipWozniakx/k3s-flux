@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: homarr-testing
 
 resources:
-  - ../../apps/base/homarr/homarr-manifest.yaml
+  - ../../base/homarr/homarr-manifest.yaml
   - namespace.yaml
   - secret-testing.yaml
 patches:
