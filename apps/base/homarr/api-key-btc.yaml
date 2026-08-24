@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+    API_KEY: ENC[AES256_GCM,data:7LFjGULNBrSsLlxI4XBn4rx2ucHTVNlxfNENa1Ix1G+SqUyn2XFYZGWwSAiBL5rpoGxEvA==,iv:Hrgx6j+n+eyGoA4pj1qSySg8wb87AHpLN2H2n8XvO/8=,tag:rL8jBO7dr86BHj9WN945vw==,type:str]
+kind: Secret
+metadata:
+    name: api-btc
+    namespace: homarr
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB1elpmVTR0VmpWcllWNWxo
+            MlAyZDE3RVBHQkNzOUwvTDVVelNCN3RoMEVVCjJjN29hOU9qcFI1b2I5dUtMcjJL
+            cFRXZ3FFL1NyS1FmRjUwTkp0Y2V3NFEKLS0tIE14eG4wYlFuQjEyaXM2SnVGUTJU
+            MjVPTlZ4aTY5TS9QN1A3ZFN0T1FCSHcK1N/vVPHgewzneZYx1YsotXTusgLaaJHp
+            0ezHFoamLcGXxAJAcgur4bs+VFc6hQhKV0JnyVioiK6/+jEg1RX3WA==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-08-24T18:52:17Z"
+    mac: ENC[AES256_GCM,data:eRUO+9zPrtf0b2SlwpHatCoEi+kn8fVyucmzQZ11OEhO4xd8AvQTs2BRRqqD3iNzJVF5c3jDuZ+UuSxTsMkvYJu7vKGhch+dR9D9+leP96S+rq3cV3OOB7Fxfx2y85Y+56ZOJICE/cMcZpmnUlx1jRK4yku9/a8bQExNlNFnsOo=,iv:Jkw2MbypZY1iTy8mp1gTS/CaH8PD7tyYmbUisZZVlDg=,tag:3stmxGo/uCVPmf9rvi8qFg==,type:str]
+    version: 3.13.3

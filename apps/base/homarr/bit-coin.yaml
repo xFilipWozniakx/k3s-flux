@@ -33,14 +33,20 @@ spec:
       imagePullSecrets:
         - name: ghcr-creds
       containers:
-        
+
         - name: bitcoin-api
           image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.60
           imagePullPolicy: IfNotPresent
           volumeMounts:
           - name: shared-directory
             mountPath: /api/www
-        
+          env: 
+            - name: API_KEY
+              secretKeyRef:
+                key: API_KEY
+                name: api-btc
+                optional: false
+
         - name: nginx
           image: nginx:alpine
           imagePullPolicy: IfNotPresent
@@ -52,6 +58,7 @@ spec:
             mountPath: /usr/share/nginx/html 
           ports: 
             - containerPort: 8080
+
       volumes:
       - name: main-config
         hostPath:
