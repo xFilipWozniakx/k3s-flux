@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+    token: ENC[AES256_GCM,data:rX1LQnJjB6Zg46S8vnLJ4dlWLwsTsLFpauGCis85uEUyME6GDWQm07KgbQMCNaaW2bnAGLl/vyvubP93uGbGZVdN53d6wlP6oVVqkR7eq8EgqSMYpsgrIrpA/dUmNZuXgO5pfqlVlsbCoSOC5zDR0shNQtffIV703F1TIcJfMPK2eSQ2HACtmImvWfbQ/OKZlP37UVXerNq3WKohcy9i2vfgaxpa6lXrTWGhrfQqe0s8lbfMg+a+t2QjDF1hjqaFjcCIYXFazl+9/A9jbsGSeiXZg6imXUiR4U0t4YEbGpICVlIii/zxz9C390+HIzMhin3JbqWpHJY=,iv:MOCBABG9CPm/WsrFko5L6mEW02DkRnCLFWU5DE6grM0=,tag:tifsrmoBimBr8H5Y1zmddQ==,type:str]
+kind: Secret
+metadata:
+    name: tunnel-token
+    namespace: cloudflared
+type: Opaque
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBpdDdaNHI4WExsN043Zk1S
+            YllGMXNqZW5XaVRWb2wya3ZxTnlyZlJ4WFZ3CnZhV0F5OTFjWm5JeTdGenErSVlD
+            Lzg4UzE3c293cFJYK1RSZWlFZ1RxcVkKLS0tIGxBU25oL2ZyR3lIa2tkUnU2U1M4
+            SEJCc2FIVWNjZnNDRHFwUWRQR1dGZ3cKEzfiTVcck0D30EMUrQRJdCWBMPefjSbf
+            s0pbBPegUZBzjNePlD/yWDx+rZLWVLC9Q7Dqthc7vlbvT5dW96ZFoQ==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-08-24T18:40:00Z"
+    mac: ENC[AES256_GCM,data:T53mRu+fK6X2lnO3NV1yfFZizYD0L44XQL7h8ikSCbukNEZ38ajLgjVouTiGlBMTEQDU97rQ1+ZnDkTnzRqDD94C3vYWddY5WtSdTPauBwQ0j+V0dfTaudypiUqxacfw24zGfXXQovQxNUKqb7B/JgiBHmTWNSgP2mgELrVnTw8=,iv:L/3i/ufU5qfY5UczVCt/0AyHR4YHCvGQolKr59U0L/g=,tag:x9MDkVQ24D3EjrRsp6+Yvw==,type:str]
+    version: 3.13.3

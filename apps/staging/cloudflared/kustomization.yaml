@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: cloudflared
 resources:
   - deployment.yaml
-
+  - tunnel-token.yaml
