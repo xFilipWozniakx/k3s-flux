@@ -42,15 +42,17 @@ spec:
             mountPath: /api/www
           env: 
             - name: API_KEY
-              secretKeyRef:
-                key: API_KEY
-                name: api-btc
-                optional: false
+              valueFrom:
+                secretKeyRef:
+                  key: API_KEY
+                  name: api-btc
+                  optional: false
             - name: DNS_ADD
-              secretKeyRef:
-                key: DNS_ADD
-                name: api-btc
-                optional: false
+              valueFrom:
+                secretKeyRef:
+                  key: DNS_ADD
+                  name: api-btc
+                  optional: false
 
         - name: nginx
           image: nginx:alpine
