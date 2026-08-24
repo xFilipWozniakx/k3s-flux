@@ -5,6 +5,7 @@ namespace: homarr-testing
 resources:
   - ../../apps/base/homarr/homarr-manifest.yaml
   - namespace.yaml
+  - secret-testing.yaml
 patches:
   - target: 
       kind: Deployment
@@ -32,7 +33,7 @@ patches:
                 emptyDir: {}
 labels:
   - includeSelectors: true
-    paris: 
+    pairs: 
       app.kubernetes.io/managed-by: kustomize
       app.kubernetes.io/name: homarr-testing
       app.kubernetes.io/instance: homarr-testing
