@@ -5,4 +5,4 @@ resources:
   - homarr-manifest.yaml
   - homarr-pv.yaml
   - bit-coin.yaml
-
+  - db-encryption.yaml

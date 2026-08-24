@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+    db-encryption-key: ENC[AES256_GCM,data:pIxodl1mdFvTIfY8RXpPJqeh/MVHsYwFAiK7ZRRJw199HFDAlcq5RCf6zcXNvqKo/AgDRcwZrFVrP11LN5ZtD3kMeQA0erp2Cm8r3SbckM+TFWFLr0PDsQ==,iv:dHlpF+u0r0f5SaPrCijTPpcsv/FeQT+517JeoqFbx0o=,tag:iv4ZLA9w07QxKDkRPsMWQQ==,type:str]
+kind: Secret
+metadata:
+    name: db-encryption
+    namespace: homarr
+type: Opaque
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqRDI4eHArOXhGU09oRVZC
+            Z0t4enN1WC9KVzJxQ3VjeDhkTk4wTjZrMGtnCmtmZ0R0UHBqQW9ZS3hIT2ErdlM1
+            RDFTc3BiUi93M3RZR2hLaFNtQTZOMmMKLS0tIG9rOXBOWTdneUJaTzhTcjMwYmd1
+            c2tVSFFJSm45MmRhbUhLRGlXN2E0STQKY2Y0obd+e9kv0Az0nsKfh/S6eqB3M9D1
+            yD4VRz8fTuttVxlDtGQiO6pihue38uSW0SuWdWbDI16+ckQu66OaEw==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-08-24T18:46:50Z"
+    mac: ENC[AES256_GCM,data:XC3ZDj+uEfGZD5KENWx9Vq3WwT52PxU3OGAOIBLexBcxJ/DFEKdzCW/+t42ofV+s542MxEobjSju7ir4kxP6SWL8gek9qwlOtwJ7iX+gdkxVEHmHdFk+NLAWwhjjXprQ7CNxytd4J5N5qGVgnFzKDKI34+FnEm437cq4LtkUht4=,iv:n9qGt0sfjL5l5n5yj2U7Za/IP4lL3rTg+FHzcWetNjU=,tag:m5ayWO6VZqNst/h7cHTOHQ==,type:str]
+    version: 3.13.3
