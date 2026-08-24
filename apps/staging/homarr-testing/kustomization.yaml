@@ -10,7 +10,7 @@ patches:
   - target: 
       kind: Deployment
       name: homarr
-    patch: 
+    patch: |-
       metadata:
         namespace: homarr-testing
       spec:
