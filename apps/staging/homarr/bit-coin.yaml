@@ -37,16 +37,17 @@ spec:
         - name: bitcoin-api
           image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.56
           imagePullPolicy: IfNotPresent
-          volumeMount:
+          volumeMounts:
           - name: shared-directory
-            emptyDir: /api
+            mountPath: /api/index.html
+            subPath: index.html
         
         - name: nginx
           image: nginx:alpine
           imagePullPolicy: IfNotPresent
           volumeMounts:
           - name: main-config
-            mountPath: "/etc/nginx/nginx.conf"
+            mountPath: /etc/nginx/nginx.conf
             readOnly: true
           - name: shared-directory
             mountPath: /usr/share/nginx/html 
