@@ -35,12 +35,11 @@ spec:
       containers:
         
         - name: bitcoin-api
-          image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.56
+          image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.57
           imagePullPolicy: IfNotPresent
           volumeMounts:
           - name: shared-directory
-            mountPath: /api/index.html
-            subPath: index.html
+            mountPath: /api/www
         
         - name: nginx
           image: nginx:alpine
