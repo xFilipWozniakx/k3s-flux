@@ -7,10 +7,12 @@ resources:
   - namespace.yaml
   - secret-testing.yaml
 patches:
-  - target: 
+  - target:
       kind: Deployment
       name: homarr
     patch: |-
+      apiVersion: v1              # api i kind jest wymagane
+      kind: Deployment
       metadata:
         namespace: homarr-testing
       spec:
@@ -19,9 +21,9 @@ patches:
             securityContext:
               runAsNonRoot: true
               runAsUser: 10001
-              runAsGrup: 10001
+              runAsGroup: 10001
             containers:
-              - name: homarr-testing # nie wiem czy taka zmiana nazwy zadziala
+              - name: homarr
                 securityContext:
                   allowPrivilegeEscalation: false
                   readOnlyRootFilesystem: true
@@ -33,10 +35,7 @@ patches:
                 emptyDir: {}
 labels:
   - includeSelectors: true
-    pairs: 
+    pairs:
       app.kubernetes.io/managed-by: kustomize
       app.kubernetes.io/name: homarr-testing
       app.kubernetes.io/instance: homarr-testing
-
-
-        
