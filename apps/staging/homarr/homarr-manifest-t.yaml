@@ -130,6 +130,21 @@ spec:
           volumeMounts:
             - name: homarr-db
               mountPath: /appdata
+            - name: homarr-nginx-config 
+              mountPath: /etc/nginx
+            - name: homarr-nginx-var
+              mountPath: /var/lib/nginx/logs
+            - name: homarr-nginx-var-lib-tmp
+              mountPath: /var/lib/nginx/tmp
+
       volumes:
         - name: homarr-db
           emptyDir: {}
+        - name: homarr-nginx-config 
+          emptyDir: {}
+        - name: homarr-nginx-var
+          emptyDir: {}
+        - name: homarr-nginx-var-lib-tmp
+          emptyDir: {}
+ 
+
