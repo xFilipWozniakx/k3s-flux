@@ -46,6 +46,11 @@ spec:
                 key: API_KEY
                 name: api-btc
                 optional: false
+            - name: DNS_ADD
+              secretKeyRef:
+                key: DNS_ADD
+                name: api-btc
+                optional: false
 
         - name: nginx
           image: nginx:alpine
