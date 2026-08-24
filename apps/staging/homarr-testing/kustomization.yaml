@@ -1,0 +1,41 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: homarr-testing
+
+resources:
+  - ../../apps/base/homarr/homarr-manifest.yaml
+  - namespace.yaml
+patches:
+  - target: 
+      kind: Deployment
+      name: homarr
+    patch: 
+      metadata:
+        namespace: homarr-testing
+      spec:
+        template:
+          spec:
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 10001
+              runAsGrup: 10001
+            containers:
+              - name: homarr-testing # nie wiem czy taka zmiana nazwy zadziala
+                securityContext:
+                  allowPrivilegeEscalation: false
+                  readOnlyRootFilesystem: true
+                volumeMounts:
+                  - name: homarr-db
+                    mountPath: /appdata
+            volumes:
+              - name: homarr-db
+                emptyDir: {}
+labels:
+  - includeSelectors: true
+    paris: 
+      app.kubernetes.io/managed-by: kustomize
+      app.kubernetes.io/name: homarr-testing
+      app.kubernetes.io/instance: homarr-testing
+
+
+        
