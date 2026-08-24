@@ -35,7 +35,7 @@ spec:
       containers:
         
         - name: bitcoin-api
-          image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.6
+          image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.60
           imagePullPolicy: IfNotPresent
           volumeMounts:
           - name: shared-directory
