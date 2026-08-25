@@ -1,21 +1,17 @@
 grafana:
-    enabled: ENC[AES256_GCM,data:Xo1CQQ==,iv:IpgT/hyHpHnBej/M0UEk4JEMynSfZ/+ym+jgBqpjpRg=,tag:Ib9VhwqpXTKH13d9VNuu1Q==,type:bool]
+    enabled: true
     admin:
-        existingSecret: ENC[AES256_GCM,data:P/pVMGeyURiK,iv:Qfo7gvC76AEcRpy96jNC59yhfx5m74UId6KdIYesnmw=,tag:ZeU4TYPY/kxjf8u5cr7opw==,type:str]
-        userKey: ENC[AES256_GCM,data:4SxisCxHNoAjCQ==,iv:iI1f+xyIM1ZEMhtW8QzmEZhE9kM+pSuhqehmJJ8K3tI=,tag:/2QxJ+3M7WrKxq/Q+Teclw==,type:str]
-        passwordKey: ENC[AES256_GCM,data:v4ap8iuFn7le+lwa3Og=,iv:d4z8C96ityl2j1KAVKHlWHZN8Bf/dyFZUR4OrlvRo6k=,tag:M2VJReKz9XyKGuCTor9w7Q==,type:str]
-sops:
-    age:
-        - enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBBYUFqcHhzL09rOUdzQURl
-            ckZVNk9XdTBBbk4vRzhaLzZEUlhnTDNlVUVBCmJzRHc3YkU3UldQdVZBQTV1a0RH
-            Nk9kY0dxa3Y1cHAxMGZJZ0p1RFVEK00KLS0tIEUwZFdGVlEvTUZuc1pxQVZhdnJp
-            enFpOGg1S0lldzlKRlVXTXJYd2tnNVEKZII1E1lDUAvQ6KWl0qA021zAJytCzKkF
-            q2uHghcQXGWEeeGTFMIJnA9P3cZUacLrIJVZFOqY5/YwBLPIJDLIpw==
-            -----END AGE ENCRYPTED FILE-----
-          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
-    lastmodified: "2026-08-25T08:32:03Z"
-    mac: ENC[AES256_GCM,data:xHLID5Li0EizxnBL3yHr/7SOBBpP7FZDc8KDuVHXlbtv8PGll3Qie5twOmddrW4eI//xDGfuKNXP67s8J1fqBZYl2We7VDyjQJ1lV/yAQ5vSXmJikysoNb9vuN450dRQDHGIK0Bae9Bgt8HB0dr98UtM76ueCs6oE0TwiJVrssg=,iv:TUir2tiOngD5y8Fq4W9MIWG2x+othS10R0qli1riruw=,tag:4ipRjUVTeMBnuAwZReohcw==,type:str]
-    unencrypted_suffix: _unencrypted
-    version: 3.13.3
+      existingSecret: monit-sec
+      userKey: admin-user
+      passwordKey: admin-password
+    grafana.ini:
+      security:
+        allow_embedding: true
+      server:
+        root_url: "https://informations.filipwozniak.org"
+      public_dashboards:
+        enabled: true
+
+nodeExporter:
+  extraArgs:
+    - collector.hwmon
