@@ -1,0 +1,27 @@
+apiVersion: v1
+data:
+    admin-password: ENC[AES256_GCM,data:kcinPIEGNAGWY39WCqfIqBwUY0bve6jMlpJxBEAq6tKO1zAT3iBin3YIeYPDXyRYm6+FmpY9j8UaucHlzS4fO8BDlsOlDN2jm848q1ITfBucUh/KLvOoqA==,iv:I4Nduoeo6yqWvtP2AD1LwHIwHGBZhEPqMVbBKXa7RQ4=,tag:LhwP4MEGAkYTvrr7WTGPKw==,type:str]
+    admin-user: ENC[AES256_GCM,data:bwNq5HPoUA7r6Q6JotCEP0/Lx6o=,iv:nRw3fqSSnEPIxDOn2ZwPNFKx6qH1qaI9teUXngq6wuA=,tag:LomRQSFPhOWoH3ve5tmE9g==,type:str]
+kind: Secret
+metadata:
+    creationTimestamp: "2026-08-25T08:12:24Z"
+    name: monit-sec
+    namespace: monitoring
+    resourceVersion: "770778"
+    uid: 5203468a-8e64-43c7-83be-5760d9d0bb62
+type: Opaque
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAwZmkvT3ExWG9NbVZFMlFW
+            YVludVlUMmNVNUc2L09aNXNaSUpRWEVEeUVRCjlEaTlXM0tRYXBJWUxqMGVzMXJx
+            VmZXN0dKQWJUSGZEcGUzWHhQNlloSEkKLS0tIERzRFNwRUswYkV2ekJmMVZQSGxt
+            NlN2KzNzemdEaVl4TGltR3ZFeXdVbVEKvOTqYIWk6NEt6kTiYk5YogJVAF9/dmXt
+            ooDj6p23uXZcFALkim3AZpLIsQHpdG6hp+oLC/sMcI7yURAFLHUvMw==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-08-25T08:39:40Z"
+    mac: ENC[AES256_GCM,data:PIjDYi6F8Z5gHjrhkC0743LBWZA0+eThVe4iB7Z2MxIC7zD0bMKfYaplmDtkkBKq2MCafMNw4EfKCrZJBoTVao9JUkQN/z6qMqLksOu4VK3mMt9j2EgdPrjO3MOLFxN41pueUahXhv/JR7YFK1hsRHeB5HlVNXGKoZl7f+Ezndw=,iv:OCI+pAr9v3oBIxb7wbZmXYLP+hl0+g3lkrhcmg0OqrM=,tag:/OWxxmIqDmeyMKCVSjBfTA==,type:str]
+    version: 3.13.3
