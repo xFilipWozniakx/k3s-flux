@@ -1,17 +1,38 @@
 grafana:
-    enabled: true
+    enabled: ENC[AES256_GCM,data:8/gysg==,iv:YWGBe5O0Q65d6YE3EM7hQn2DQ20SZJjK0IYyEExJe64=,tag:0qfPqj1ds4mwD67A59Vsdg==,type:bool]
     admin:
-      existingSecret: monit-sec
-      userKey: admin-user
-      passwordKey: admin-password
+        existingSecret: ENC[AES256_GCM,data:dvQE2yltjXaz,iv:Rg974lv6ZxDUrReaq4BLeAU9e+cvQcZLYDVrd4isBHU=,tag:MM4VzBBvJX5Vszq25BYsog==,type:str]
+        userKey: ENC[AES256_GCM,data:9M5DJxiLyPb7sw==,iv:pS9M3KzzyG0YkuGGgmqh6NP+xEftdjgExzsMQyKEstQ=,tag:TTJQcTPnJkKMBKK6LJFrkw==,type:str]
+        passwordKey: ENC[AES256_GCM,data:xa4maG9EL8fFBS/sFx4=,iv:m7SZsY422ZeZZqZVeHMb7mGVkbJlO27HW9i4JSO6+Jk=,tag:rgR3nZXQoeKiztAHxM6YJw==,type:str]
     grafana.ini:
-      security:
-        allow_embedding: true
-      server:
-        root_url: "https://informations.filipwozniak.org"
-      public_dashboards:
-        enabled: true
-
+        security:
+            allow_embedding: ENC[AES256_GCM,data:8GxE0w==,iv:2MOwvpyLoYAe4nqepcS1KLV25K+sMtfIGh1UZFg/nGM=,tag:DElogqb7Y4NAM8llb6wmsg==,type:bool]
+        server:
+            root_url: ENC[AES256_GCM,data:Iu7rpRnKecouN7wm+vmk7Q5NN7iKOGN7R4gY5D9OKoE5OCHjwA==,iv:2mvIA+0UfHu6ko7jGCMzgDo5wBkVvUWZAXhWJbI8Re8=,tag:gs3jhJvlhkrI3OGeuO33Fg==,type:str]
+        public_dashboards:
+            enabled: ENC[AES256_GCM,data:pq2b3A==,iv:1arluJMjogy7EHA7FhxNdIn1CBWXM8OY8GRR2cnIeJI=,tag:4M2Fm5mc8oXeYx6IyC301w==,type:bool]
+    persistence:
+        enabled: ENC[AES256_GCM,data:REk+Dw==,iv:46hm+JycVc+1O6t/DS2e80wRU/gum/RSdkPjeM3CLy8=,tag:BeYkE5YMB86J0U+tvPbVqQ==,type:bool]
+        type: ENC[AES256_GCM,data:4W4v,iv:DhkUURJuHRpopPfGbJJqC/GBMHQle+s8c0fMT1iRH/w=,tag:4ZpkBIMqaSub7FFNTUBFGQ==,type:str]
+        storageClassName: ENC[AES256_GCM,data:nHt3b3nht4uB/w==,iv:YN5QOANtAObfQ87H98MCwggokWI3/gwiAD1zeGY6r+I=,tag:oBpYrre1rge4ja2mvfCl5w==,type:str]
+        accessModes:
+            - ENC[AES256_GCM,data:tf5AOL9qesaXWGzHCQ==,iv:Mhj0eeHb1JheBLYdsCNyiUdEJMWahL8LkOPsEzqhvLE=,tag:UnTUVWLqyfXXgv7B/SWWKQ==,type:str]
+        size: ENC[AES256_GCM,data:1YQWeg==,iv:gdshYfgMkidatszszQGKyyIXE3FNFZmw4X2fu0qjrWc=,tag:iaEnAhg7q1KszvQbXEnTLw==,type:str]
 nodeExporter:
-  extraArgs:
-    - collector.hwmon
+    extraArgs:
+        - ENC[AES256_GCM,data:iNysW20iwAEhbOXXfR8Y,iv:3lY2y8Ucd0mRauR2JiPXo7am4Rd300Dd7mk8vlt3xP0=,tag:p5cwKRyg7hBfJ2yMIuIF3A==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzNnNEdTV0bk9EbVBQbTdK
+            MkV4TlMvVFhlV2xDZWlXaVJqNzl4NGI3NUhRCndvMGRoNHdjaXdNd1RTcHNEYTRP
+            Z3BYZWdTU24yTHZYNzMwZFZnNFJUQ2cKLS0tIEpMa2RUT3VObmI4bEs2eFRzNC8z
+            T1puTS9LMGYyU0dYYkJkcVE2MWlXekkKOANnc4u+OODmH+qo9r/9GXMi/2lwPqne
+            OT/qmPj2YB1Jaf3jgK2tA4HBOVgO6g4WOyOCuzwvsYfQdvFnnn3v+Q==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(grafana|nodeExporter)$
+    lastmodified: "2026-08-25T17:59:23Z"
+    mac: ENC[AES256_GCM,data:yPs/bRQRZ39clk5b0+6t4Fjr8oBoN2Tmchvt+ZZrC54jtZW3vUXX5EDVcNHTZRWfXM1T8Ud0RiEfeigySmXOYoBD/CYP4uwwh6TPoNoE3VIkr7Dk324Q0jxwUWKg4JadG8vILuzWQLtBtCcRD/gS/gfJnIQmVzOU9/Q+Xr1IEKM=,iv:EnrRee5O4rIPt5U8KXqdrRlmsC6WuDKI4HDNW8snSXo=,tag:SbTVqKpO+fnOyfl0V+LGqQ==,type:str]
+    version: 3.13.3
