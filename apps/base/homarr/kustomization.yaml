@@ -6,4 +6,3 @@ resources:
   - homarr-pv.yaml
   - bit-coin.yaml
   - db-encryption.yaml
-  - api-key-btc.yaml
