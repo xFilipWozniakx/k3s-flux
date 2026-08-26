@@ -32,25 +32,24 @@ spec:
     grafana:
       adminPassword: mischa
       ingress:
+        enabled: true
+        ingressClassName: traefik
+        annotations:
+          kubernetes.io/ingress.class: traefik
+          kubernetes.io/tls-acme: "false"
+        labels:
+          kubernetes.io/service: grafana-ingress
+        hosts:
+          - grafana.filipwozniak.org
+        path: /
+         
+        persistence:
           enabled: true
-          ingressClassName: traefik
-          annotations:
-            kubernetes.io/ingress.class: traefik
-            kubernetes.io/tls-acme: "false"
-          labels:
-            kubernetes.io/service: grafana-ingress
-          hosts:
-            - grafana.filipwozniak.org
-          path: /
-          
-
-        # persistence:
-  #   enabled: true
-  #   type: sts
-  #   storageClassName: "storageClassName"
-  #   accessModes:
-  #     - ReadWriteOnce
-  #   size: 20Gi
-  #   finalizers:
-  #     - kubernetes.io/pvc-protection
+          type: sts
+          storageClassName: "local-path"
+          accessModes:
+            - ReadWriteOnce
+          size: 20Gi
+          finalizers:
+            - kubernetes.io/pvc-protection
 
