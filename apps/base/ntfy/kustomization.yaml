@@ -4,5 +4,5 @@ namespace: ntfy
 resources:
   - namespace.yaml
   - deployment.yaml
-  - service.yaml
+  # - service.yaml
   - config.yaml
