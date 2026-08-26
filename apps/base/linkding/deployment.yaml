@@ -12,8 +12,14 @@ spec:
       labels:
         app: linkding
     spec:
+      securityContext:
+        fsGroup: 33
+        runAsUser: 33
+        runAsGroup: 33 
       containers:
       - image: ghcr.io/sissbruecker/linkding:1.46.1-plus-alpine
+        securityContext:
+            allowPrivilegeEscalation: false
         name: linkding-cont
         ports:
           - containerPort: 9090
