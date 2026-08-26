@@ -5,7 +5,7 @@ metadata:
 spec: 
   ingressClassName: traefik
   rules: 
-    - host: ld.k8s 
+    - host: ld.filipwozniak.org 
       http:
         paths: 
           - backend: 
