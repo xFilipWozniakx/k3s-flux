@@ -4,4 +4,4 @@ resources:
   - namespace.yaml
   - release.yaml
   - repository.yaml
-  - tls-ss.yaml
+  - tls-secret.yaml
