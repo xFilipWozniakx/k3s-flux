@@ -41,16 +41,10 @@ spec:
             kubernetes.io/service: grafana-ingress
           hosts:
             - grafana.filipwozniak.org
-          http:
-            paths: 
-            - backend: 
-                service:
-                  name: kube-prometheus-stack-grafana
-                  port:
-                    number: 3000
-                path: /
-                pathType: Prefix
-            # persistence:
+          path: /
+          
+
+        # persistence:
   #   enabled: true
   #   type: sts
   #   storageClassName: "storageClassName"
