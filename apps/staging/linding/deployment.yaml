@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkding-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linkding
+  template:
+    metadata:
+      labels:
+        app: linkding
+    spec:
+      containers:
+      - image: ghcr.io/sissbruecker/linkding:1.46.1-plus-alpine
+        name: linkding-cont
+        ports:
+          - containerPort: 9090
+            name: linkding-port
+            protocol: TCP
+        volumeMounts:
+          - name: linkding-data
+            mountPath: /etc/linkding/data
+        env:
+          - name: LD_SUPERUSER_NAME
+            valueFrom:
+               secretKeyRef:
+                name: creds
+                key: admin
+          - name: LD_SUPERUSER_PASSWORD
+            valueFrom: 
+              secretKeyRef:
+                name: creds
+                key: pass
+      volumes:
+        - name: linkding-data
+          persistentVolumeClaim:
+            claimName: linkding-claim
+
