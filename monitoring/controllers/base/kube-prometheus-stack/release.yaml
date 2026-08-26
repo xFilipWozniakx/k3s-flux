@@ -31,28 +31,25 @@ spec:
   values:
     grafana:
       adminPassword: mischa
-
-ingress:
-    enabled: true
-    ingressClassName: traefik
-    annotations:
-      kubernetes.io/ingress.class: traefik
-      kubernetes.io/tls-acme: "false"
-    labels:
-      kubernetes.io/service: grafana-ingress
-
-    hosts:
-      - grafana.filipwozniak.org
-    http:
-      paths: 
-       - backend: 
-          service:
-            name: kube-prometheus-stack-grafana
-            port:
-              number: 3000
-          path: /
-          pathType: Prefix
-            
+      ingress:
+          enabled: true
+          ingressClassName: traefik
+          annotations:
+            kubernetes.io/ingress.class: traefik
+            kubernetes.io/tls-acme: "false"
+          labels:
+            kubernetes.io/service: grafana-ingress
+          hosts:
+            - grafana.filipwozniak.org
+          http:
+            paths: 
+            - backend: 
+                service:
+                  name: kube-prometheus-stack-grafana
+                  port:
+                    number: 3000
+                path: /
+                pathType: Prefix
             # persistence:
   #   enabled: true
   #   type: sts
