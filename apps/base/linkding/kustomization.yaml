@@ -6,4 +6,5 @@ resources:
   - namespace.yaml
   - pvc-linkding.yaml
   - secrets.yaml
-  # - service.yaml
+  - service.yaml
+  - ingress.yaml
