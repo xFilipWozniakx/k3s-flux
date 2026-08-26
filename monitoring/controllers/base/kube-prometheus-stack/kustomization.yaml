@@ -5,4 +5,4 @@ resources:
   - namespace.yaml
   - release.yaml
   - repository.yaml
-  - tls-secret.yaml
+  - ../../configs/staging
