@@ -42,14 +42,13 @@ spec:
         hosts:
           - grafana.filipwozniak.org
         path: /
-         
-        persistence:
-          enabled: true
-          type: sts
-          storageClassName: "storageClassName"
-          accessModes:
-            - ReadWriteOnce
-          size: 20Gi
-          finalizers:
-            - kubernetes.io/pvc-protection
+        # persistence:
+        #   enabled: true
+        #   type: sts
+        #   storageClassName: "storageClassName"
+        #   accessModes:
+        #     - ReadWriteOnce
+        #   size: 20Gi
+        #   finalizers:
+        #     - kubernetes.io/pvc-protection
 
