@@ -43,7 +43,7 @@ spec:
           - grafana.filipwozniak.org
         path: /
         tls:
-          - secretName: tls-ss
+          - secretName: tls-secret
             hosts:
               - grafana.filipwozniak.org
 
