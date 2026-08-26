@@ -36,13 +36,13 @@ spec:
         ingressClassName: traefik
         annotations:
           kubernetes.io/ingress.class: traefik
-          kubernetes.io/tls-acme: "false"
+          kubernetes.io/tls-acme: "true"
         labels:
           kubernetes.io/service: grafana-ingress
         hosts:
           - grafana.filipwozniak.org
         path: /
-        tls: 
+        tls:
           - secretName: tls-ss
             hosts:
               - grafana.filipwozniak.org
