@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - namespace.yaml
-  - service.yaml
   - pvc-linkding.yaml
   - secrets.yaml
   - service.yaml
