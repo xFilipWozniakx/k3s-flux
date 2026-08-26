@@ -42,7 +42,13 @@ spec:
         hosts:
           - grafana.filipwozniak.org
         path: /
+        tls: 
+          - secretName: tls-ss
+            hosts:
+              - grafana.filipwozniak.org
+
         # persistence:
+        #
         #   enabled: true
         #   type: sts
         #   storageClassName: "storageClassName"
