@@ -57,12 +57,25 @@ spec:
         - name: nginx
           image: nginx:alpine
           imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 101
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+              - ALL
+
           volumeMounts:
           - name: main-config
             mountPath: /etc/nginx/nginx.conf
             readOnly: true
           - name: shared-directory
             mountPath: /usr/share/nginx/html 
+          - name: tmp 
+            mountPath: /tmp
+          - name: nginx-cache
+            mountPath: /var/cache/nginx
           ports: 
             - containerPort: 8080
 
@@ -72,4 +85,8 @@ spec:
           path: /data/kubernetes-pv/nginx/nginx.conf 
           type: File
       - name: shared-directory
+        emptyDir: {}
+      - name: tmp
+        emptyDir: {}
+      - name: nginx-cache
         emptyDir: {}
