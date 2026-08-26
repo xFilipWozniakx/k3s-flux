@@ -6,7 +6,7 @@ metadata:
     app: linkding
 spec:
   ports:
-    - port: 9090
+    - port: 8083
       targetPort: 9090 # targetport is port that inside of pod
   selector:
     app: linkding
