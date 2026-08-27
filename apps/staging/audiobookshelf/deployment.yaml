@@ -38,16 +38,16 @@ spec:
               mountPath: audiobooks
          #################
       volumes:
-        - name: 
+        - name: config
           persistentVolumeClaim:
             claimName: config
-        - name: 
+        - name: metadata
           persistentVolumeClaim:
             claimName: metadata
-        - name: 
+        - name: podcasts
           persistentVolumeClaim:
             claimName: podc-pvc
-        - name: 
+        - name: audiobooks
           persistentVolumeClaim:
             claimName: audio-pvc
 
