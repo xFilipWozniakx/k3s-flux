@@ -7,3 +7,5 @@ resources:
   - db-encryption.yaml
   - homarr-service.yaml
   - ingress.yaml
+  - namespace.yaml
+  - configmap.yaml
