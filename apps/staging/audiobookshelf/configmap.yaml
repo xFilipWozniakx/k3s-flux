@@ -3,4 +3,5 @@ kind: ConfigMap
 metadata:
   name: audiobook-config
 data:
-  PORT: "3005"
+#  PORT: "3005"
+  RANDOM: some_info
