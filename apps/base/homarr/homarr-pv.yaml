@@ -42,4 +42,4 @@ spec:
   resources:
     requests:
       storage: 1000Mi
-  volumeName: homarr-db-2
+  volumeName: homarr-pvc-2
