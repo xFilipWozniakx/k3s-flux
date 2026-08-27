@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,29 +26,29 @@ spec:
               protocol: TCP
           # env:
           #   - name: j
-
-          volumeMounts:
-            - name: config
-              mountPath: /config
-              readOnly: true
-            - name: metadata
-              mountPath: /metadata
-            - name: podcasts
-              mountPath: podcasts
-            - name: audiobooks
-              mountPath: audiobooks
-        #################
-      volumes:
-        - name: 
-          persistentVolumeClaim:
-            claimName: config
-        - name: 
-          persistentVolumeClaim:
-            claimName: metadata
-        - name: 
-          persistentVolumeClaim:
-            claimName: podc-pvc
-        - name: 
-          persistentVolumeClaim:
-            claimName: audio-pvc
-        
+      #
+      #     volumeMounts:
+      #       - name: config
+      #         mountPath: /config
+      #         readOnly: true
+      #       - name: metadata
+      #         mountPath: /metadata
+      #       - name: podcasts
+      #         mountPath: podcasts
+      #       - name: audiobooks
+      #         mountPath: audiobooks
+      #   #################
+      # volumes:
+      #   - name: 
+      #     persistentVolumeClaim:
+      #       claimName: config
+      #   - name: 
+      #     persistentVolumeClaim:
+      #       claimName: metadata
+      #   - name: 
+      #     persistentVolumeClaim:
+      #       claimName: podc-pvc
+      #   - name: 
+      #     persistentVolumeClaim:
+      #       claimName: audio-pvc
+      #
