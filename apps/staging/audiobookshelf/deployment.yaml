@@ -18,27 +18,27 @@ spec:
         app: audioshell
     spec:
       containers:
-        name: audiobook
-        image: advplyr/audiobookshelf:latest
-        imagePullPolicy: Always
-        ports:
-          - name: main
-            containerPort: 13378
-            protocol: TCP
-        # env:
-        #   - name: j
+        - name: audiobook
+          image: advplyr/audiobookshelf:latest
+          imagePullPolicy: Always
+          ports:
+            - name: main
+              containerPort: 13378
+              protocol: TCP
+          # env:
+          #   - name: j
 
-        volumeMounts:
-          - name: config
-            mountPath: /config
-            readOnly: true
-          - name: metadata
-            mountPath: /metadata
-          - name: podcasts
-            mountPath: podcasts
-          - name: audiobooks
-            mountPath: audiobooks
-      #################
+          volumeMounts:
+            - name: config
+              mountPath: /config
+              readOnly: true
+            - name: metadata
+              mountPath: /metadata
+            - name: podcasts
+              mountPath: podcasts
+            - name: audiobooks
+              mountPath: audiobooks
+        #################
       volumes:
         - name: 
           persistentVolumeClaim:

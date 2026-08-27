@@ -23,3 +23,29 @@ spec:
     requests:
       storage: 5Gi
   volumeName: audio-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata: 
+  name: config-pvc
+spec:
+  storageClassName: "local-path"
+  accessModes: 
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: config
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata: 
+  name: metadata-pvc
+spec:
+  storageClassName: "local-path"
+  accessModes: 
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: metadata
