@@ -23,6 +23,9 @@ spec:
     spec:
       securityContext:
         fsGroup: 2000
+        runAsUser: 2000
+        runAsGroup: 2000
+        runAsNonRoot: true
       containers:
         - name: homarr
           image: "ghcr.io/homarr-labs/homarr:v1.76.1"
@@ -51,9 +54,9 @@ spec:
             capabilities:
               drop:
                 - ALL
+            allowPriviledgeEscalation: false
             readOnlyRootFilesystem: true
             runAsNonRoot: true
-            runAsUser: 1000
           env:
             - name: SECRET_ENCRYPTION_KEY
               valueFrom:
