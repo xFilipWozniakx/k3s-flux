@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress 
+metadata:
+  name: homarr-ingress
+spec:
+  ingressClassName: traefik
+  rules: 
+    - host: homarr.filipwozniak.org 
+      http:
+        paths: 
+          - backend: 
+              service:
+                name: homarr
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
