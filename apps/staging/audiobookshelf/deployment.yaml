@@ -29,7 +29,6 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
-              readOnly: true
             - name: metadata
               mountPath: /metadata
             - name: podcasts
