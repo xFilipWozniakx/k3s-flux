@@ -70,6 +70,6 @@ spec:
             - name: homarr-db
               mountPath: /appdata
       volumes:
-       - name: homarr-db
+       - name: homarr-db-new
          persistentVolumeClaim:
            claimName: homarr-pvc-2
