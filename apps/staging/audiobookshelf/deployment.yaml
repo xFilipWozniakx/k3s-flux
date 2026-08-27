@@ -40,14 +40,14 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: config
+            claimName: config-pvc
         - name: metadata
           persistentVolumeClaim:
-            claimName: metadata
+            claimName: metadata-pvc
         - name: podcasts
           persistentVolumeClaim:
-            claimName: podc-pvc
+            claimName: podcasts-pvc
         - name: audiobooks
           persistentVolumeClaim:
-            claimName: audio-pvc
+            claimName: audiobooks-pvc
 

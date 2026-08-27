@@ -9,7 +9,6 @@ spec:
   resources:
       requests:
         storage: 5Gi
-  volumeName: podc-pvc
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -22,7 +21,6 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  volumeName: audio-pvc
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -35,7 +33,6 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: config
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -48,4 +45,3 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: metadata
