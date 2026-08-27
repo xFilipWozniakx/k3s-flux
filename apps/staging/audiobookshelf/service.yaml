@@ -9,7 +9,7 @@ spec:
     - name: app
       port: 3005
       protocol: TCP
-      targetPort: 13378
+      targetPort: 3005
   selector:
     app: audioshell 
 

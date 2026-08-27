@@ -18,13 +18,19 @@ spec:
       containers:
         - name: audiobook
           image: advplyr/audiobookshelf:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - name: main
-              containerPort: 13378
+              containerPort: 3005
               protocol: TCP
-          # env:
-          #   - name: j
+
+            
+          env:
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: audiobook-config
+                key: PORT
 
           volumeMounts:
             - name: config
