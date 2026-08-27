@@ -1,0 +1,55 @@
+
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: audiobook-deplo
+  namespace: audiobook
+  labels:
+    app: audioshell 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: audioshell
+  # strategy: 
+  #   type: RollingUpdate
+  #
+    template:
+      spec:
+        containers:
+          name: audiobook
+          image: advplyr/audiobookshelf:latest
+          imagePullPolicy: Always
+          ports:
+            - name: main
+              containerPort: 13378
+              protocol: TCP
+          
+          # env:
+          #   - name: j
+
+          volumeMounts:
+            - name: config
+              mountPath: /config
+              readOnly: true
+            - name: metadata
+              mountPath: /metadata
+            - name: podcasts
+              mountPath: podcasts
+            - name: audiobooks
+              mountPath: audiobooks
+        #################
+        volumes:
+          - name: 
+            persistentVolumeClaim:
+              claimName: config
+          - name: 
+            persistentVolumeClaim:
+              claimName: metadata
+          - name: 
+            persistentVolumeClaim:
+              claimName: podc-pvc
+          - name: 
+            persistentVolumeClaim:
+              claimName: audio-pvc
+          
