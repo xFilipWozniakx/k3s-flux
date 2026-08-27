@@ -29,3 +29,17 @@ spec:
     requests:
       storage: 1000Mi
   volumeName: homarr-db
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: homarr-pvc-new
+  namespace: homarr
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 1000Mi
+  volumeName: homarr-db-2
