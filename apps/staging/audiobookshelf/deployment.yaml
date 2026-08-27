@@ -23,14 +23,11 @@ spec:
             - name: main
               containerPort: 3005
               protocol: TCP
-
             
-          env:
-          - name: PORT
-            valueFrom:
-              configMapKeyRef:
-                name: audiobook-config
-                key: PORT
+          envFrom:
+            - configMapRef:
+              name: audiobook-config
+              key: PORT
 
           volumeMounts:
             - name: config
