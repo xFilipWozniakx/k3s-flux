@@ -67,7 +67,7 @@ spec:
             - configMapRef:
                 name: homarr-config
           volumeMounts:
-            - name: homarr-db
+            - name: homarr-db-new
               mountPath: /appdata
       volumes:
        - name: homarr-db-new
