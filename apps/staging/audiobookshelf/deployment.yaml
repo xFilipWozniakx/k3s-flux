@@ -27,7 +27,6 @@ spec:
           envFrom:
             - configMapRef:
               name: audiobook-config
-              key: PORT
 
           volumeMounts:
             - name: config
