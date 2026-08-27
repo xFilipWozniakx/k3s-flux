@@ -16,7 +16,7 @@ spec:
                 - xfilipwozniakx/k3s-flux
               envFrom:
                 - secretRef:
-                    name: renovate-env-variable
+                    name: renovate-secret
                 - configMapRef:
                     name: renovate-configmap
           restartPolicy: Never
