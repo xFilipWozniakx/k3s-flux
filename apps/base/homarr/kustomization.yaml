@@ -5,3 +5,5 @@ resources:
   - homarr-manifest.yaml
   - homarr-pv.yaml
   - db-encryption.yaml
+  - homarr-service.yaml
+  - ingress.yaml
