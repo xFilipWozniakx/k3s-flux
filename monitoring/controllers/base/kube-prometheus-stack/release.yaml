@@ -36,6 +36,7 @@ spec:
         allow_embedding: true
         cookie_samesite: none
         cookie_secure: true
+
       ingress:
         enabled: true
         ingressClassName: traefik
