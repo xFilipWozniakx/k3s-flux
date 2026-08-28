@@ -1,0 +1,41 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: cert-manager
+spec:
+  url: oci://quay.io/jetstack/charts
+  interval: 1h
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cert-manager
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: cert-manager
+      version: '1.21.x'
+      sourceRef:
+        kind: HelmRepository
+        name: cert-manager
+      interval: 1h
+  releaseName: cert-manager
+  install:
+    creds: Create
+  upgrade:
+    creds: CreateReplace
+  driftDetection:
+    mode: enabled
+    ignore:
+    - paths: ["/spec/replicas"]
+      target:
+        kind: Deployment
+  values:
+    replicaCount: 1
+    installCRDs: true
+    crds:
+      enabled: true
+      keep: true
+    replicaCount: 1
+

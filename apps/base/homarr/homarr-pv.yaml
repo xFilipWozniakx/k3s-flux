@@ -29,32 +29,3 @@ spec:
     requests:
       storage: 1000Mi
   volumeName: homarr-db
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: homarr-db-new
-spec:
-  accessModes:
-  - ReadWriteOnce
-  capacity:
-    storage: 1000Mi
-  hostPath:
-    path: /data/homarr-pv-new/
-    type: "DirectoryOrCreate"
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: ""
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: homarr-db-pvc
-  namespace: homarr
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: ""
-  resources:
-    requests:
-      storage: 1000Mi
-  volumeName: homarr-db-new
