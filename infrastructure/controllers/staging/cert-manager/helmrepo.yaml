@@ -3,7 +3,7 @@ kind: OCIRepository
 metadata:
   name: cert-manager
 spec:
-  url: oci://quay.io/jetstack/charts
+  url: oci://quay.io/jetstack/charts/cert-manager
   interval: 1h
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
