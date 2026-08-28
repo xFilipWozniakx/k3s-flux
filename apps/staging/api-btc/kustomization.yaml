@@ -6,3 +6,4 @@ resources:
   - bit-coin.yaml
   - namespace.yaml
   - service.yaml
+  - configmap-nginx.yaml
