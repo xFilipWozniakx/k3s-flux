@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bitcoin-api
-  namespace: homarr
 spec:
   replicas: 1
   strategy:
@@ -15,10 +14,7 @@ spec:
       labels:
         app: bitcoin
     spec:
-      imagePullSecrets:
-        - name: ghcr-creds
       containers:
-
         - name: bitcoin-api
           image: ghcr.io/xfilipwozniakx/bitcoin_api:v0.1.62
           imagePullPolicy: IfNotPresent
@@ -40,42 +36,34 @@ spec:
                   optional: false
 
         - name: nginx
-          image: nginx:alpine
+          image: nginxinc/nginx-unprivileged:latest
           imagePullPolicy: IfNotPresent
           securityContext:
             runAsNonRoot: true
             runAsUser: 101
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
-            capabilities:
-              drop:
-              - ALL
 
           volumeMounts:
-          - name: main-config
-            mountPath: /etc/nginx/nginx.conf
-            readOnly: true
           - name: shared-directory
-            mountPath: /usr/share/nginx/html 
-          - name: tmp 
-            mountPath: /tmp
-          - name: nginx-cache
-            mountPath: /var/cache/nginx
-          - name: nginx-run
-            mountPath: /var/run
+            mountPath: /usr/share/nginx/html
+          # - name: shared-directory
+          #   mountPath: /usr/share/nginx/html 
+          # - name: tmp 
+          #   mountPath: /tmp
+          # - name: nginx-cache
+          #   mountPath: /var/cache/nginx
+          # - name: nginx-run
+          #   mountPath: /var/run
           ports: 
             - containerPort: 8080
-
       volumes:
-      - name: main-config
-        hostPath:
-          path: /data/kubernetes-pv/nginx/nginx.conf 
-          type: File
       - name: shared-directory
         emptyDir: {}
-      - name: tmp
-        emptyDir: {}
-      - name: nginx-cache
-        emptyDir: {}
-      - name: nginx-run
-        emptyDir: {}
+
+      # - name: tmp
+      #   emptyDir: {}
+      # - name: nginx-cache
+      #   emptyDir: {}
+      # - name: nginx-run
+      #   emptyDir: {}
