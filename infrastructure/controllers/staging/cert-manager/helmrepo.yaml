@@ -17,14 +17,14 @@ spec:
       chart: cert-manager
       version: '1.21.x'
       sourceRef:
-        kind: HelmRepository
+        kind: OCIRepository
         name: cert-manager
       interval: 1h
   releaseName: cert-manager
   install:
-    creds: Create
+    crds: Create
   upgrade:
-    creds: CreateReplace
+    crds: CreateReplace
   driftDetection:
     mode: enabled
     ignore:
