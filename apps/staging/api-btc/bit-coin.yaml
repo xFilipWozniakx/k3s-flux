@@ -46,10 +46,10 @@ spec:
           volumeMounts:
           - name: shared-directory
             mountPath: /usr/share/nginx/html
-          # - name: nginx-cfg
-          #   mountPath: /etc/nginx/nginx.conf
-          #   readOnly: true
-          #
+          - name: nginx-cfg
+            mountPath: /etc/nginx/nginx.conf
+          #  readOnly: true
+
           ports: 
             - containerPort: 8080
       volumes:
