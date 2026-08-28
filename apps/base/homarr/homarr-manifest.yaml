@@ -69,9 +69,9 @@ spec:
                   name: db-encryption
                   key: db-encryption-key
             - name: PUID
-              value: 1000
+              value: "1000"
             - name: GUID
-              value: 999
+              value: "999"
           envFrom:
             - configMapRef:
                 name: homarr-config
