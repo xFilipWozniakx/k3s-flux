@@ -19,13 +19,13 @@ spec:
       labels:
         app.kubernetes.io/name: homarr
         app.kubernetes.io/instance: homarr
-        app.kubernetes.io/version: "v1.76.0"
+        app.kubernetes.io/version: "v1.76.2"
     spec:
-      securityContext:
-        fsGroup: 1000
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroupChangePolicy: "OnRootMismatch"
+      # securityContext:
+      #   fsGroup: 1000
+      #   runAsUser: 1000
+      #   runAsGroup: 1000
+      #   fsGroupChangePolicy: "OnRootMismatch"
       containers:
         - name: homarr
           image: "ghcr.io/homarr-labs/homarr:v1.76.2"
@@ -68,10 +68,6 @@ spec:
                 secretKeyRef:
                   name: db-encryption
                   key: db-encryption-key
-            - name: PUID
-              value: "1000"
-            - name: PGID
-              value: "1000"
           envFrom:
             - configMapRef:
                 name: homarr-config
@@ -80,7 +76,5 @@ spec:
               mountPath: /appdata
       volumes:
        - name: homarr-db-new
-         emptyDir: {} 
-
-        # persistentVolumeClaim:
-        #    claimName: homarr-db-pvc
+         persistentVolumeClaim:
+           claimName: homarr-pvc
