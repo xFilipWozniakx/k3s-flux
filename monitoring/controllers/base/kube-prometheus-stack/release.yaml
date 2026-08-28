@@ -32,10 +32,10 @@ spec:
     grafana:
       adminPassword: password
       grafana.ini:
-      security:
-        allow_embedding: true
-        cookie_samesite: none
-        cookie_secure: true
+        security:
+          allow_embedding: true
+          cookie_samesite: none
+          cookie_secure: true
 
       ingress:
         enabled: true
