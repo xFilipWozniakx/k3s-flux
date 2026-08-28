@@ -50,16 +50,16 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 1
-          # securityContext:
-          #   capabilities:
-          #     drop:
-          #       - ALL
-          #     add:
-          #       - CHOWN
-          #       - SETUID
-          #       - SETGID
-          #       - DAC_OVERRIDE
-          #   #allowPriviledgeEscalation: false
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+              add:
+                - CHOWN
+                - SETUID
+                - SETGID
+                - DAC_OVERRIDE
+            #allowPriviledgeEscalation: false
             #readOnlyRootFilesystem: true
             #runAsNonRoot: true
           env:
