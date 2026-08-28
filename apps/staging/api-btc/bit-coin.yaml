@@ -42,7 +42,6 @@ spec:
             runAsNonRoot: true
             runAsUser: 101
             allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
              
           volumeMounts:
           - name: shared-directory
