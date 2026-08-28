@@ -48,6 +48,7 @@ spec:
             mountPath: /usr/share/nginx/html
           - name: nginx-cfg
             mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
           #  readOnly: true
 
           ports: 
