@@ -43,27 +43,19 @@ spec:
             runAsUser: 101
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
-
+             
           volumeMounts:
           - name: shared-directory
             mountPath: /usr/share/nginx/html
-          # - name: shared-directory
-          #   mountPath: /usr/share/nginx/html 
-          # - name: tmp 
-          #   mountPath: /tmp
-          # - name: nginx-cache
-          #   mountPath: /var/cache/nginx
-          # - name: nginx-run
-          #   mountPath: /var/run
+          - name: nginx-cfg
+            mountPath: /etc/nginx/nginx.conf
+            readOnly: true
+
           ports: 
             - containerPort: 8080
       volumes:
       - name: shared-directory
         emptyDir: {}
-
-      # - name: tmp
-      #   emptyDir: {}
-      # - name: nginx-cache
-      #   emptyDir: {}
-      # - name: nginx-run
-      #   emptyDir: {}
+      - name: nginx-cfg
+        configMap:
+          name: nginx-config
