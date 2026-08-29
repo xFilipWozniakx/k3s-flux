@@ -1,14 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-staging
+  name: letsencrypt-prod
 spec:
   acme:
     email: filipwu95@gmail.com
-    profile: tlsserver
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: certificates-dns01
+      name: certificates-dns01-prod
     solvers:
     - dns01:
         cloudflare:
