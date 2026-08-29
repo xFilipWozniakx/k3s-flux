@@ -3,7 +3,7 @@ kind: HelmRepository
 metadata:
   name: cert-manager
 spec:
-  url: oci://quay.io/jetstack/charts/cert-manager
+  url: oci://quay.io/jetstack/charts
   type: oci
   interval: 1h
 ---
