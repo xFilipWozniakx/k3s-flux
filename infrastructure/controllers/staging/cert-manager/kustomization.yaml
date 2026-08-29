@@ -5,4 +5,4 @@ resources:
   - helmrepo.yaml
   - namespace.yaml
   - ACMEissuer.yaml
-
+  - api-token-cloudflare.yaml
