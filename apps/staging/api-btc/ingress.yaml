@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress 
 metadata:
   name: ingress-nginx
+  cert-manager.io/cluster-issuer: letsencrypt-prod
+  traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec: 
   ingressClassName: traefik
   rules: 
@@ -15,3 +17,8 @@ spec:
                   number: 8082
             path: / 
             pathType: Prefix
+  tls:
+      - hosts:
+          - bitcoin-api.filipwozniak.org
+        secretName: bitcoin-tls-prod-secret
+
