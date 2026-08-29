@@ -18,7 +18,7 @@ spec:
             path: / 
             pathType: Prefix
   tls:
-      - hosts:
-          - bitcoin-api.filipwozniak.org
-        secretName: bitcoin-tls-prod-secret
+    - hosts:
+      - bitcoin-api.filipwozniak.org
+      secretName: bitcoin-tls-prod-secret
 
