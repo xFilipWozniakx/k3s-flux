@@ -19,5 +19,6 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-      - homarr.filipwozniak.org
-      secretName: certificates-http
+        - homarr.filipwozniak.org
+      secretName: certificates-dns01
+
