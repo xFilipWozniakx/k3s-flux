@@ -17,7 +17,6 @@ spec:
     spec:
       chart: cert-manager
       version: '1.21.x'
-      targetNamespace: certs-manager
       sourceRef:
         kind: HelmRepository
         name: cert-manager
