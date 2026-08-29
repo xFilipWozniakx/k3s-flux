@@ -43,24 +43,15 @@ spec:
         annotations:
           kubernetes.io/ingress.class: traefik
           kubernetes.io/tls-acme: "true"
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
         labels:
           kubernetes.io/service: grafana-ingress
+
         hosts:
           - grafana.filipwozniak.org
         path: /
         tls:
-          - secretName: tls-grafana-secret
-            hosts:
+          - hosts:
               - grafana.filipwozniak.org
-
-        # persistence:
-        #
-        #   enabled: true
-        #   type: sts
-        #   storageClassName: "storageClassName"
-        #   accessModes:
-        #     - ReadWriteOnce
-        #   size: 20Gi
-        #   finalizers:
-        #     - kubernetes.io/pvc-protection
-
+            secretName: grafana-prod-tls
