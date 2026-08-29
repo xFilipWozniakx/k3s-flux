@@ -1,4 +1,4 @@
-## repo for my k3s+flux home-lab cluster
+## repo for my k3s+flux home-lab cluster.
 ### repo contains of (major)
 #### - flux
 #### - cert-manager 
