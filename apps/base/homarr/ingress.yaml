@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress 
 metadata:
-  name: homarr-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: homarr-ingress
 spec:
   ingressClassName: traefik
   rules: 
@@ -20,4 +20,4 @@ spec:
   tls:
     - hosts:
       - homarr.filipwozniak.org
-        secretName: certificates-http
+      secretName: certificates-http
