@@ -17,10 +17,6 @@ spec:
         - name: nfs-srv
           securityContext:
             privileged: true
-            capabilities:
-              add:
-                - SYS_ADMIN
-                - SETPCAP
           image: erichough/nfs-server:2.2.1
           ports:
             - name: nfs-4-tcp
@@ -30,9 +26,9 @@ spec:
               containerPort: 2049
               protocol: UDP
           volumeMounts:
+            - name: shares
+              mountPath: /shares
             - name: media
-            #  mountPropagation: HostToContainer   # might cause issues
-            #  readOnly: true                      # might cause issues
               mountPath: /shares/media
             - name: logs
               mountPath: /shares/logs
@@ -52,3 +48,5 @@ spec:
         - name: logs
           persistentVolumeClaim:
             claimName: logs-blog
+        - name: shares
+          emptyDir: {}
