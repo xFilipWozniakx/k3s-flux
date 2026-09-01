@@ -11,34 +11,34 @@ spec:
     metadata:
       labels:
         app: nfs
-  spec:
-    containers:
-      - name: nfs-srv
-        securityContext:
-          privileged: true
-          capabilities:
-            add:
-              - SYS_ADMIN
-              - SETPCAP
-        image: erichough/nfs-server:2.2.1
-        ports:
-          - name: nfs-4-tcp
-            containerPort: 2049
-            protocol: TCP
-          - name: nfs-4-udp
-            containerPort: 2049
-            protocol: UDP
-        volumeMounts:
-          - name: media
-          #  mountPropagation: HostToContainer   # might cause issues
-          #  readOnly: true                      # might cause issues
-            mountPath: /shares/pictures
-        env:
-          - name: NFS_EXPORT_0
-            value: "/shares/pictures 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
-          # - name: NFS_EXPORT_1
-          #   value: "/var/logs 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
-    volumes:
-      - name: media
-        persistentVolumeClaim:
-          claimName: media-blog
+    spec:
+      containers:
+        - name: nfs-srv
+          securityContext:
+            privileged: true
+            capabilities:
+              add:
+                - SYS_ADMIN
+                - SETPCAP
+          image: erichough/nfs-server:2.2.1
+          ports:
+            - name: nfs-4-tcp
+              containerPort: 2049
+              protocol: TCP
+            - name: nfs-4-udp
+              containerPort: 2049
+              protocol: UDP
+          volumeMounts:
+            - name: media
+            #  mountPropagation: HostToContainer   # might cause issues
+            #  readOnly: true                      # might cause issues
+              mountPath: /shares/pictures
+          env:
+            - name: NFS_EXPORT_0
+              value: "/shares/pictures 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
+            # - name: NFS_EXPORT_1
+            #   value: "/var/logs 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-blog
