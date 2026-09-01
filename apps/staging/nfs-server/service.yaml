@@ -11,3 +11,4 @@ spec:
   selector:
     app: nfs
   type: LoadBalancer
+  externalTrafficPolicy: Local
