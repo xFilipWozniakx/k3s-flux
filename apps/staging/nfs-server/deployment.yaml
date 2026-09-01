@@ -39,6 +39,6 @@ spec:
           # - name: NFS_EXPORT_1
           #   value: "/var/logs 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
     volumes:
-      -  name: media
-         persistentVolumeClaim:
-           claimName: media-blog
+      - name: media
+        persistentVolumeClaim:
+          claimName: media-blog
