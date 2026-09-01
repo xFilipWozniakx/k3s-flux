@@ -15,7 +15,7 @@ spec:
       containers:
         - name: nfs-srv
           securityContext:
-            privileged: true
+            privileged: false
             capabilities:
               add:
                 - SYS_ADMIN
@@ -35,9 +35,11 @@ spec:
               mountPath: /shares/pictures
           env:
             - name: NFS_EXPORT_0
-              value: "/shares/pictures 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001,fsid=0)"
-            # - name: NFS_EXPORT_1
-            #   value: "/var/logs 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
+              value: "/shares 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001,fsid=0)"
+            - name: NFS_EXPORT_1
+              value: "/shares/logs 10.0.0.15(rw,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
+
+
       volumes:
         - name: media
           persistentVolumeClaim:
