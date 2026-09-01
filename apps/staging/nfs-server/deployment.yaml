@@ -33,17 +33,17 @@ spec:
             - name: media
             #  mountPropagation: HostToContainer   # might cause issues
             #  readOnly: true                      # might cause issues
-              mountPath: /shares
+              mountPath: /shares/media
             - name: logs
               mountPath: /shares/logs
  
           env:
             - name: NFS_EXPORT_0
-              value: "/shares 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001,fsid=0)"
+              value: "/shares 10.0.0.15(ro,async,no_subtree_check,all_squash,anonuid=10001,anongid=10001,fsid=0)"
             - name: NFS_EXPORT_1
-              value: "/shares/logs 10.0.0.15(rw,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
+              value: "/shares/logs 10.0.0.15(rw,async,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
             - name: NFS_EXPORT_2
-              value: "/shares/media 10.0.0.15(rw,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
+              value: "/shares/media 10.0.0.15(rw,async,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
 
       volumes:
         - name: media
