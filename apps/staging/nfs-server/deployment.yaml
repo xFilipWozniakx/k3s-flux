@@ -28,8 +28,8 @@ spec:
           - name: nfs-4-udp
             containerPort: 2049
             protocol: UDP
-        volueMounts:
-          - name: medai
+        volumeMounts:
+          - name: media
           #  mountPropagation: HostToContainer   # might cause issues
           #  readOnly: true                      # might cause issues
             mountPath: /shares/pictures
@@ -39,9 +39,9 @@ spec:
           # - name: NFS_EXPORT_1
           #   value: "/var/logs 10.0.0.15(ro,sync,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
     volumes:
-      name: media
-      persistentVolumeClaim:
-        claimName: media-blog
+      -  name: media
+         persistentVolumeClaim:
+          claimName: media-blog
 
 
 
