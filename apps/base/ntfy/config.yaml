@@ -10,10 +10,10 @@ data:
 
       require-login: true
       enable-login: true
-      auth-file: "/datebase/user.db"
+      auth-file: "/database/user.db"
       auth-default-access: "deny-all"
       auth-users:
         - "server:$2b$12$WdtEU2GVel5Jna4QK7USWuoDvtyVC4QJJnbYrs9dKuI7E5vRRZRxy:admin"
       auth-access:
-        - "admin:*:rw"
+        - "server:*:rw"
       # enable-reservations: false
