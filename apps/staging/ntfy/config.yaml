@@ -3,16 +3,19 @@ kind: ConfigMap
 metadata:
     name: ntfy
 data:
-    server.yml: | 
-      # Template: https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
-      base-url: "https://notifications.filipwozniak.org"
-      listen-http: ":9999"
-      behind-proxy: true
-      require-login: true
-      enable-login: true
-      
-
-      auth-file: "/database/user.db"
-      auth-default-access: "deny-all"
-      auth-users:
-        - "server:$2b$12$WdtEU2GVel5Jna4QK7USWuoDvtyVC4QJJnbYrs9dKuI7E5vRRZRxy:admin"
+    server.yml: ENC[AES256_GCM,data:pBCSiDMCR0ncfKvAH0ImSunbrACj6DrCuWMig+04iUOeDsy2dqI8mDGBgWP/iBE9c7H8jauAu/MURguJ8ynu7R6oxiWYIG93BI4FfB4bJBN3l5lSEgzCyawO9iGi5gEowHDsHkxHhwF49y3J6lSkKqBiXiIZhvkLTlCpZADF2OeFoeGKEYihe0dL74cEPc1y58N76eO4FGZOjQUIEAd6E+VtiBXEG5yq7ODr+/lrwID0hcZO0CbhwAdp3csC4yLtYPaqDv0t7HxsnNhA7gytyZSAPIxil466TxHhfxxrCuNbCf3GiZ2KLVLOeuMnjzCZcXQsLWspKUW/nwHF6cH+31ZMQyMrEb9s8SSRJfhw23NHDloNZJo57QLif9N5uquigsf/9x5SmbGl1L0lZjvJg3xI4XdMlThthM6iVajRGyS+cK71b2tzR9mC9Xtma1TXK4FJe6M4quUBO/QH/itraopWqSBTg88UrOSaGKj8cqQDPV0oR2vIKhTL78Y5jVfZYmyp6rRgi38eJu3k7b9wlKrRH1jCFgRBZIay9PxSOhkNR9m8d/pz7qCPJalLhkwM1GNeTUCse0E=,iv:pVJjdWMuOwSIUIjvMoJGmnDfcIw9U4O9jQgVJRt7qas=,tag:BpqudqjIedLIPt7u4AVCig==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVTi9XNCtWdVR1Y2c0Sm51
+            Ni9NY1UzRHRRclVoblpRbDJ1Skl2Sm9sc0g0CjdWa1ZQN2JsNjlLZldYMmxuTHdJ
+            WUxaRDF4WUhyNkxRdGFIbUQ1eFJEeHMKLS0tIC84WUZmRllzQUxEeUhMbGlYenN4
+            Y09TV3NMK3lmMEJrcEc5YTJ3MlhFL1kKY6fyTAwyvzwsM23D+gpYGJoDF4HWWA8x
+            F5D+Sf/S8BH2Kj5nrDsgfLTFpHcnRN6gPZQwDX2nQdkH4i3HAE1VrQ==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-09-02T20:07:43Z"
+    mac: ENC[AES256_GCM,data:1rsqALbQfzcKCvci51aQZktulfemDtSBQKLXRcr1LlksBiVm+wZEXNPiWO3Fg+nFO9KttRAzA75MYSRy3pTi8WNRNzjjEdkSRbJncMEYHuwG8hUxJ6SQ5uIKqIaqtjgbku7AIe5BNGfWs6tN1/qW6Co4gS7a6riZkDtdqPuRZPU=,iv:ODG41AzBp4uXL9gTLsyTBNhBG8UnWEQwBI5NBLKQicA=,tag:xWdzch45XrNePiO0dOO9Yg==,type:str]
+    version: 3.13.3
