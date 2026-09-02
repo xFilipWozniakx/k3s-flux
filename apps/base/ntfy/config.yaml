@@ -17,7 +17,7 @@ data:
     # - enable-reservations allows users to reserve topics (if their tier allows it)
     #
     # enable-signup: false
-    # require-login: false
-    # enable-login: false
+    require-login: true
+    enable-login: true
     # enable-reservations: false
   
