@@ -7,11 +7,10 @@ data:
       # Template: https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
       base-url: "https://notifications.filipwozniak.org"
       listen-http: ":9999"
-
       require-login: true
       enable-login: true
+      
       auth-file: "/database/user.db"
       auth-default-access: "deny-all"
       auth-users:
         - "server:$2b$12$WdtEU2GVel5Jna4QK7USWuoDvtyVC4QJJnbYrs9dKuI7E5vRRZRxy:admin"
-      # enable-reservations: false
