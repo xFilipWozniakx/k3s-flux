@@ -12,7 +12,7 @@ data:
       auth-file: /datebase/user.db
       auth-default-access: deny-all
       auth-users:
-        - "admin:$6$FLxmHTyxDSZZUtyo$Oj0XbudEq3.U36sEp.DpcnXOhQFdbg7HCd7XoMA14LxD8GaXiBGbQInaBVSez8c4Vcna5pejM4nqaLV3ArWoL/:admin"
+        - "server:$6$FLxmHTyxDSZZUtyo$Oj0XbudEq3.U36sEp.DpcnXOhQFdbg7HCd7XoMA14LxD8GaXiBGbQInaBVSez8c4Vcna5pejM4nqaLV3ArWoL/:admin"
         - "pi:$6$rJzheKCXvHYOKzxq$h2AWTU2ZedBlyJnpBlMjmeEjbiLE3z8lL721Te0.zIp2nt33JBjMcUMLwRCWBHaTmzvwTmGRbZH6McdWg98JX.:/user"
       auth-access:
         - "admin:*:rw"
