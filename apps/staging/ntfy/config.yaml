@@ -7,9 +7,11 @@ data:
       # Template: https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
       base-url: "https://notifications.filipwozniak.org"
       listen-http: ":9999"
+      behind-proxy: true
       require-login: true
       enable-login: true
       
+
       auth-file: "/database/user.db"
       auth-default-access: "deny-all"
       auth-users:
