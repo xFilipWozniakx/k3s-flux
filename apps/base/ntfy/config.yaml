@@ -8,8 +8,8 @@ data:
       base-url: "https://notifications.filipwozniak.org"
       listen-http: ":9999"
 
-      require-login: "true"
-      enable-login: "true"
+      require-login: true
+      enable-login: true
       auth-file: "/datebase/user.db"
       auth-default-access: "deny-all"
       auth-users:
