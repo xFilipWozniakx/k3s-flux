@@ -11,6 +11,8 @@ spec:
       labels:
         app: ntfy
     spec:
+      securityContext:
+        fsGroup: 10000
       containers:
       - name: ntfy
         image: binwiederhier/ntfy
