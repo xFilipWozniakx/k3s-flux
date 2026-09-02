@@ -3,7 +3,8 @@ kind: ConfigMap
 metadata:
     name: ntfy
 data:
-    server.yml: "# Template: https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
+    server.yml: 
+      # Template: https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
       base-url: "https://notifications.filipwozniak.org"
       listen-http: ":9999"
 
