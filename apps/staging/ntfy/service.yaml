@@ -10,4 +10,4 @@ spec:
   ports:
   - port: 9999
     name: main-port
-    targetPort: 80
+    targetPort: 9999
