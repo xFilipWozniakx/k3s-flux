@@ -1,23 +1,21 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ntfy
+    name: ntfy
 data:
-  server.yml: |
-    # Template: https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
-    base-url: https://notifications.filipwozniak.org
-    listen-http: ":9999"
-
-    # Various feature flags used to control the web app, and API access, mainly around user and
-    # account management.
-    #
-    # - enable-signup allows users to sign up via the web app, or API
-    # - enable-login allows users to log in via the web app, or API
-    # - require-login redirects users to the login page if they are not logged in (disallows web app access without login)
-    # - enable-reservations allows users to reserve topics (if their tier allows it)
-    #
-    # enable-signup: false
-    require-login: true
-    enable-login: true
-    # enable-reservations: false
-  
+    server.yml: ENC[AES256_GCM,data:g5zUxF3ow0TPrLqJTIlkXMjDS6rL/PFh0f9IfdKXUByry0i2Bq3+Uj4AuhBLjr8Nl7pQMPSgoEzuLgrp2tSA/9MqLEd3tDWj69qwPpvPLvZUXnHMQFfW8OCFUdvkfC50qQJT7nCikHe9kGgzsHMOB4uAj0FXcuR3skhxb6l/ViUj5Mc4Ay+mrKlyTJ8Eg2GoNLzxkYSveKlDX7V8uetalCvIGIvvzL0aMsn50x9V8jtE84GnAQaO2E3piI5tFGC98cUoa1YyvAe1koWtBfORlJoskVtkQD/hU1QkBpnCIuJFwD/3ASTod0VbpRF0fLMEESyM7m1traJS4cugSUzF8Bl+ERGajYcC+GXnaou5Qv1ifkLGRUTpKksabPdQ6d2z+26zxFSq1WcMie2xEvBfeX0D3GzwLQGXV0dmWMCdnljiznnNdL6IHpQWnLgggVQaImlb80nb60F9RnuL8uPgKGjxD+06MoV+asf4ZunqFVxH+lNweamSkPkRXic5wwtEzRh83FROaD4yfkWpI18ww9TKpRYBEib1N9YgErwLylbu7xQccZH4MYPRsyOc4nft4tXuarTGR3PFjDQ0i5HtulqzAcYRAxSIYMdhA92/8+zDZnYksq7RzOmZ698K0DSOUgK0nfauRoxpqPhhTgJvJn55mKyotgQ6ulL6y0uUq2YORUelkhhSxW+aQfErpwaFRbaZOWavclJ2p2kP5F0p87BWEMwBOFMG9X5WoXTAfszAPBIruOG67UrHCbNSqn2PnNb96nRJk9INulBRWdULrVrjb2nU7mbyklDARqqse9brzWsZCZ2Hqp3n+Jc4eoi1M6qiNERhwZI5WkfORxm22hpXSrip+FMkTbUkVPVBlhgJAtAIfucen6bP9kDGRpUl6Cf3w+ngR4cphu/qn4QQPgbgmuDfMXEL55DmlLxIWbXsgK74EVtIvtr3oGUgEu/zTrw54XSY60R4HK0YQRzzkOLeyEBWNacf0/ngzZQ9uCFK6qd6sc9dHaDh6rTsZj4PU8du3hhWJw5eJnrlrHs3v7jBb5Q1USUMYJLoJwjIuwNMvOAOD9nfU1Aa+uMQkNn0hH1r3QMXoSajXRtmLaZnWjWlAoZiQUVSxXJ5yoasHOlJanfw39JUqOYEkcv/L+b/5badM1ohkADkEcT6N3fWCATwOgo69XNZtqX1zZN+zlh4He2oU97KHQsMiR3XM2DZUp9hn//xMBwrKSbFKVRvrrsvBrYd7J02sk/ivGJpxA+z/ydkCmLRA6jmbMoyYlIWYKjaDcD61T6oHS4+UcIcDMb5yPEZLG8rz1GRhHYxeC70w4tq+YMhn4MiVvEqXwAdynIKEiEcyKvIsvsfl28amQmSZVP520m7BbZhI4vV+EA=,iv:4pKLMI1L7Q+XEBJ4jJ02283g7LkVUDZEpPGTu/shWVY=,tag:Dqouduz9FgEgrgb1G6lzhQ==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBLVGtlSUw0YUdMOVUwOFVK
+            bzhZZ0hjMm10enRCY2NFRk5ySi95YnBZMkdvCjJqelpSNFZsSFhhUEdib3MxWmxz
+            MlV1WTE5Ui90NnBFc2Q0NEVZeUxFd3MKLS0tIDh5OEtEVlJvRDdDUnQreTVURnNE
+            LzdCZE0xWXYweFpGSEtyRlBaZ3BmRDQKS+DSw+4ts3SCI7Hnh3ATxe2QgNjsxlyI
+            ms+ZcqdzzXtLzGK7TNteT0ft2nbJ6hfAYSLC63P4wqRXT3z4BvPKgQ==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(data)$
+    lastmodified: "2026-09-02T14:21:50Z"
+    mac: ENC[AES256_GCM,data:99cFUHVqM7fEihUitgKiBBqFd+05F6uHhluajOtjJp97x5fHHv5j3eFOROR762CET2uuJVKsH8uHhwVgoO9BIJF3bFLYXK18AUO2qThVvUbroJVtud2VS/zuaE2bN3+bX5qZV0hUaTo91x9l8IDYB5qX6dNXX2C/mSyFUer9lpM=,iv:b4hrRiEbbdrhPBoMjfHpmlwprWosaD7vtAPLMFL0hpI=,tag:u4WHUYHja2/ge3doiycM9w==,type:str]
+    version: 3.13.3
