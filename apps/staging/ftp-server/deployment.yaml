@@ -39,11 +39,13 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: user
+                  name: mysql-user
                   optional: false
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: pass
+                  name: mysql-pass
                   optional: false
           envFrom:
             - configMapRef:
@@ -51,16 +53,16 @@ spec:
                 optional: false
 
           volumeMounts:
-            - name: ftp_data
+            - name: ftp-data
               mountPath: /var/ftp/users
-            - name: ftp_log
+            - name: ftp-log
               mountPath: /var/log/proftpd
 
       volumes:
-        - name: ftp_data
+        - name: ftp-data
           persistentVolumeClaim:
             claimName: data-pvc
-        - name: ftp_log
+        - name: ftp-log
           persistentVolumeClaim:
               claimName: log-pvc
 
