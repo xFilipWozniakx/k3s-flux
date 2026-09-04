@@ -46,8 +46,8 @@ spec:
                   key: pass
                   optional: false
           envFrom:
-            configMapRef:
-              - name: proftpd-config
+            - configMapRef:
+                name: proftpd-config
                 optional: false
 
           volumeMounts:
