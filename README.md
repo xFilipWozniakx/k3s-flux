@@ -1,15 +1,19 @@
 ## repo for my k3s+flux home-lab cluster.
+
 ### repo contains of (major)
-#### - flux
-#### - cert-manager 
-#### - renovate
-#### - prometheus + grafana stack
-#### - cloudflared
-#### * main goal is to create that repo with flux GitOps best practices in mind
+- [x] flux
+- [x] cert-manager 
+- [x] renovate
+- [x] prometheus + grafana stack
+* main goal is to create that repo with flux GitOps best practices in mind
+
 ### repo contains of (minor)
-#### - homarr ( local )
-#### - linkding ( local )
-#### - ntfy
-#### - audiobookshelf ( local )
-#### - few custom apps for my homarr dashboard: 
-#### - bitcoin API into html 
+- [x] cloudflared
+- [x] homarr ( local )
+- [x] linkding ( local )
+- [x] ntfy
+- [x] audiobookshelf ( local )
+- [x] few custom apps for my homarr dashboard: 
+- [x] bitcoin API into html
+- [] ftp server
+- [] matrix chat server
