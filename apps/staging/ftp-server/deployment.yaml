@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proftpd-deplo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proftpd
+  template:
+    metadata:
+      labels:
+        app: proftpd
+    spec:
+      # securityContext:
+      #   fsGroup: 1000
+      #   runAsNonRoot: true
+      containers:
+        - name: proftpd
+          image: serversideup/proftpd:v1.0.2
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsGroup: 999
+            runAsUser: 999
+          ports:
+            - containerPort: 21
+              protocol: TCP
+            - containerPort: 990
+              protocol: TCP
+            - containerPort: 60000
+              protocol: TCP
+            - containerPort: 60001
+              protocol: TCP
+            - containerPort: 60002
+              protocol: TCP
+          env:
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  key: user
+                  optional: false
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: pass
+                  optional: false
+          envFrom:
+            configMapRef:
+              name: proftpd-config
+              optional: false
+
+          volumeMounts:
+            - name: ftp_data
+              mountPath: /var/ftp/users
+            - name: ftp_log
+              mountPath: /var/log/proftpd
+
+      volumes:
+        - name: ftp_data
+          persistentVolumeClaim:
+            claimName: data-pvc
+        - name: ftp_log
+          persistentVolumeClaim:
+              claimName: log-pvc
+
