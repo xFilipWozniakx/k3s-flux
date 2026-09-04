@@ -15,5 +15,5 @@
 - [x] audiobookshelf ( local )
 - [x] few custom apps for my homarr dashboard: 
 - [x] bitcoin API into html
-- [] ftp server
-- [] matrix chat server
+- [ ] ftp server
+- [ ] matrix chat server
