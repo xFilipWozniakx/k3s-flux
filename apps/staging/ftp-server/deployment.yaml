@@ -39,13 +39,13 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: user
-                  name: mysql-user
+                  name: creds
                   optional: false
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: pass
-                  name: mysql-pass
+                  name: creds
                   optional: false
           envFrom:
             - configMapRef:
