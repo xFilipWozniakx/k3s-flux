@@ -47,8 +47,8 @@ spec:
                   optional: false
           envFrom:
             configMapRef:
-              name: proftpd-config
-              optional: false
+              - name: proftpd-config
+                optional: false
 
           volumeMounts:
             - name: ftp_data
