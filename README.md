@@ -14,6 +14,7 @@
 - [x] ntfy
 - [x] audiobookshelf ( local )
 - [x] few custom apps for my homarr dashboard: 
-- [x] bitcoin API into html
+- [x] mini bitcoin dashboard ( hand made )
+- [x] nfs-server 
 - [ ] ftp server
 - [ ] matrix chat server
