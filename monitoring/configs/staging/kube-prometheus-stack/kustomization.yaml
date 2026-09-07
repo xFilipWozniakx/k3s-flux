@@ -4,6 +4,8 @@ namespace: monitoring
 resources:
   - tls-grafana-new.yaml
   - configmap-dashboard-temperatures.yaml
+  - configmap-dashboard-temperatures-new.yaml
+
 
 
 
