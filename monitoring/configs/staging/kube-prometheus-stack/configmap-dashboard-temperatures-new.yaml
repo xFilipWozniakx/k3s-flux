@@ -144,114 +144,6 @@ data:
               },
               "transparent": true
             }
-          },
-          "panel-2": {
-            "kind": "Panel",
-            "spec": {
-              "id": 2,
-              "title": "Temp 2",
-              "description": "",
-              "links": [],
-              "data": {
-                "kind": "QueryGroup",
-                "spec": {
-                  "queries": [
-                    {
-                      "kind": "PanelQuery",
-                      "spec": {
-                        "query": {
-                          "kind": "DataQuery",
-                          "group": "prometheus",
-                          "version": "v0",
-                          "datasource": {
-                            "name": "prometheus"
-                          },
-                          "spec": {
-                            "editorMode": "code",
-                            "exemplar": false,
-                            "expr": "max without (instance, pod, job, service, endpoint, container) (\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"platform_coretemp_0\"} > 1,\n    \"sensor_name\", \"CPU Core $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"nvme_nvme0\"} > 1,\n    \"sensor_name\", \"NVMe Sensor $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    max without (sensor) (node_hwmon_temp_celsius{chip=~\"thermal_thermal_zone.*\"} > 1),\n    \"sensor_name\", \"Thermal Zone $1\", \"chip\", \"thermal_thermal_zone([0-9]+)\"\n  )\n)",
-                            "format": "time_series",
-                            "instant": false,
-                            "legendFormat": "{{sensor_name}}",
-                            "range": true
-                          }
-                        },
-                        "refId": "A",
-                        "hidden": false
-                      }
-                    }
-                  ],
-                  "transformations": [],
-                  "queryOptions": {}
-                }
-              },
-              "vizConfig": {
-                "kind": "VizConfig",
-                "group": "gauge",
-                "version": "13.2.0",
-                "spec": {
-                  "options": {
-                    "barShape": "flat",
-                    "barWidthFactor": 0.3,
-                    "effects": {
-                      "barGlow": true,
-                      "centerGlow": true,
-                      "gradient": true
-                    },
-                    "endpointMarker": "point",
-                    "minVizHeight": 75,
-                    "minVizWidth": 75,
-                    "orientation": "auto",
-                    "reduceOptions": {
-                      "calcs": [
-                        "lastNotNull"
-                      ],
-                      "fields": "",
-                      "values": false
-                    },
-                    "segmentCount": 100,
-                    "segmentSpacing": 0.3,
-                    "shape": "gauge",
-                    "showThresholdLabels": false,
-                    "showThresholdMarkers": true,
-                    "sizing": "auto",
-                    "sparkline": true,
-                    "textMode": "auto"
-                  },
-                  "fieldConfig": {
-                    "defaults": {
-                      "unit": "celsius",
-                      "decimals": 1,
-                      "min": 0,
-                      "max": 110,
-                      "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                          {
-                            "value": 0,
-                            "color": "green"
-                          },
-                          {
-                            "value": 75,
-                            "color": "#EAB839"
-                          },
-                          {
-                            "value": 85,
-                            "color": "red"
-                          }
-                        ]
-                      },
-                      "color": {
-                        "mode": "continuous-GrYlRd"
-                      },
-                      "fieldMinMax": true
-                    },
-                    "overrides": []
-                  }
-                }
-              },
-              "transparent": true
-            }
           }
         },
         "layout": {
@@ -268,19 +160,6 @@ data:
                   "element": {
                     "kind": "ElementReference",
                     "name": "panel-1"
-                  }
-                }
-              },
-              {
-                "kind": "GridLayoutItem",
-                "spec": {
-                  "x": 0,
-                  "y": 17,
-                  "width": 16,
-                  "height": 17,
-                  "element": {
-                    "kind": "ElementReference",
-                    "name": "panel-2"
                   }
                 }
               }
