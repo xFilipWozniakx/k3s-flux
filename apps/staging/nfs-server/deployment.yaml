@@ -32,6 +32,8 @@ spec:
               mountPath: /shares/media
             - name: logs
               mountPath: /shares/logs
+            - name: backups
+              mountPath: /shares/backups
  
           env:
             - name: NFS_EXPORT_0
@@ -40,8 +42,13 @@ spec:
               value: "/shares/logs 10.0.0.15(rw,async,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
             - name: NFS_EXPORT_2
               value: "/shares/media 10.0.0.15(rw,async,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
+            - name: NFS_EXPORT_3
+              value: "/shares/backups 10.0.0.15(rw,async,no_subtree_check,all_squash,anonuid=10001,anongid=10001)"
 
       volumes:
+        - name: backups
+          persistentVolumeClaim:
+            claimName: backups-blog
         - name: media
           persistentVolumeClaim:
             claimName: media-blog
