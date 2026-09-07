@@ -8,102 +8,141 @@ metadata:
 data:
   hardware-temperatures.json: |-
     {
-      "annotations": {
-        "list": []
+      "apiVersion": "dashboard.grafana.app/v2",
+      "kind": "Dashboard",
+      "metadata": {
+        "name": "node-hw-temperatures"
       },
-      "editable": true,
-      "fiscalYearStartMonth": 0,
-      "graphTooltip": 0,
-      "id": null,
-      "links": [],
-      "liveNow": false,
-      "panels": [
-        {
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "continuous-GrYlRd"
+      "spec": {
+        "editable": true,
+        "elements": {
+          "panel-1": {
+            "kind": "Panel",
+            "spec": {
+              "id": 1,
+              "title": "Hardware Temperatures",
+              "transparent": true,
+              "data": {
+                "kind": "QueryGroup",
+                "spec": {
+                  "queries": [
+                    {
+                      "kind": "PanelQuery",
+                      "spec": {
+                        "refId": "A",
+                        "query": {
+                          "kind": "DataQuery",
+                          "group": "prometheus",
+                          "version": "v0",
+                          "datasource": {
+                            "name": "prometheus"
+                          },
+                          "spec": {
+                            "editorMode": "code",
+                            "expr": "max without (instance, pod, job, service, endpoint, container) (\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"platform_coretemp_0\"} > 1,\n    \"sensor_name\", \"CPU Core $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"nvme_nvme0\"} > 1,\n    \"sensor_name\", \"NVMe Sensor $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    max without (sensor) (node_hwmon_temp_celsius{chip=~\"thermal_thermal_zone.*\"} > 1),\n    \"sensor_name\", \"Thermal Zone $1\", \"chip\", \"thermal_thermal_zone([0-9]+)\"\n  )\n)",
+                            "legendFormat": "{{sensor_name}}",
+                            "format": "time_series",
+                            "range": true
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
               },
-              "decimals": 1,
-              "mappings": [],
-              "max": 110,
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
+              "vizConfig": {
+                "kind": "VizConfig",
+                "group": "gauge",
+                "version": "13.2.0",
+                "spec": {
+                  "options": {
+                    "barShape": "flat",
+                    "barWidthFactor": 0.3,
+                    "effects": {
+                      "barGlow": true,
+                      "centerGlow": true,
+                      "gradient": true
+                    },
+                    "endpointMarker": "point",
+                    "minVizHeight": 75,
+                    "minVizWidth": 75,
+                    "orientation": "auto",
+                    "reduceOptions": {
+                      "calcs": [
+                        "lastNotNull"
+                      ],
+                      "fields": "",
+                      "values": false
+                    },
+                    "segmentCount": 100,
+                    "segmentSpacing": 0.3,
+                    "shape": "gauge",
+                    "showThresholdLabels": false,
+                    "showThresholdMarkers": true,
+                    "sizing": "auto",
+                    "sparkline": true,
+                    "textMode": "auto"
                   },
-                  {
-                    "color": "#EAB839",
-                    "value": 75
-                  },
-                  {
-                    "color": "red",
-                    "value": 85
+                  "fieldConfig": {
+                    "defaults": {
+                      "unit": "celsius",
+                      "decimals": 1,
+                      "min": 0,
+                      "max": 110,
+                      "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                          {
+                            "value": 0,
+                            "color": "green"
+                          },
+                          {
+                            "value": 75,
+                            "color": "#EAB839"
+                          },
+                          {
+                            "value": 85,
+                            "color": "red"
+                          }
+                        ]
+                      },
+                      "color": {
+                        "mode": "continuous-GrYlRd"
+                      },
+                      "fieldMinMax": true
+                    },
+                    "overrides": []
                   }
-                ]
-              },
-              "unit": "celsius"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 14,
-            "w": 24,
-            "x": 0,
-            "y": 0
-          },
-          "id": 1,
-          "options": {
-            "barShape": "flat",
-            "barWidthFactor": 0.3,
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showThresholdLabels": false,
-            "showThresholdMarkers": true,
-            "sparkline": true,
-            "text": {}
-          },
-          "pluginVersion": "10.0.0",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "code",
-              "expr": "max without (instance, pod, job, service, endpoint, container) (\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"platform_coretemp_0\"} > 1,\n    \"sensor_name\", \"CPU Core $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"nvme_nvme0\"} > 1,\n    \"sensor_name\", \"NVMe Sensor $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    max without (sensor) (node_hwmon_temp_celsius{chip=~\"thermal_thermal_zone.*\"} > 1),\n    \"sensor_name\", \"Thermal Zone $1\", \"chip\", \"thermal_thermal_zone([0-9]+)\"\n  )\n)",
-              "legendFormat": "{{sensor_name}}",
-              "range": false,
-              "refId": "A"
+                }
+              }
             }
-          ],
-          "title": "Hardware Temperatures",
-          "type": "gauge"
-        }
-      ],
-      "refresh": "10s",
-      "schemaVersion": 38,
-      "style": "dark",
-      "tags": [
-        "hardware",
-        "temperatures",
-        "node-exporter"
-      ],
-      "time": {
-        "from": "now-5m",
-        "to": "now"
-      },
-      "timepicker": {},
-      "timezone": "browser",
-      "title": "Node Hardware Temperatures",
-      "uid": "node-hw-temperatures"
-    }   }
+          }
+        },
+        "layout": {
+          "kind": "GridLayout",
+          "spec": {
+            "items": [
+              {
+                "kind": "GridLayoutItem",
+                "spec": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 16,
+                  "height": 17,
+                  "element": {
+                    "kind": "ElementReference",
+                    "name": "panel-1"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "timeSettings": {
+          "timezone": "browser",
+          "from": "now-6h",
+          "to": "now"
+        },
+        "title": "Node Hardware Temperatures"
+      }
+    }
