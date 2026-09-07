@@ -26,15 +26,6 @@ spec:
         target:
           kind: PrometheusRule
   values:
-    extraVolumes:
-      - name: sensors-config
-        hostPath: 
-          path: /etc/sensors.d/
-          type: DirectoryOrCreate
-    extraVolumesMounts:
-      - name: sensors-config
-        mountPath: /etc/sensors.d/
-        readOnly: true
     grafana:
       adminPassword: password
       grafana.ini:

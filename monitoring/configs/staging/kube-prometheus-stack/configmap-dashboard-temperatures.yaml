@@ -1,0 +1,105 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-hardware-temperatures
+  labels:
+    grafana_dashboard: "1" 
+spec:
+  data:
+    hardware-temperatures.json: |-
+      {
+        "annotations": {
+          "list": []
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": null,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+          {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [],
+                "max": 100,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "#EAB308",
+                      "value": 70
+                    },
+                    {
+                      "color": "red",
+                      "value": 85
+                    }
+                  ]
+                },
+                "unit": "celsius"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 14,
+              "w": 24,
+              "x": 0,
+              "y": 0
+            },
+            "id": 1,
+            "options": {
+              "orientation": "auto",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true,
+              "text": {}
+            },
+            "pluginVersion": "10.0.0",
+            "targets": [
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "${DS_PROMETHEUS}"
+                },
+                "editorMode": "code",
+                "expr": "max without (instance, pod, job, service, endpoint, container) (\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"platform_coretemp_0\"} > 1,\n    \"sensor_name\", \"CPU Core $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"nvme_nvme0\"} > 1,\n    \"sensor_name\", \"NVMe Sensor $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    max without (sensor) (node_hwmon_temp_celsius{chip=~\"thermal_thermal_zone.*\"} > 1),\n    \"sensor_name\", \"Thermal Zone $1\", \"chip\", \"thermal_thermal_zone([0-9]+)\"\n  )\n)",
+                "legendFormat": "{{sensor_name}}",
+                "range": false,
+                "refId": "A"
+              }
+            ],
+            "title": "Hardware Temperatures",
+            "type": "gauge"
+          }
+        ],
+        "refresh": "10s",
+        "schemaVersion": 38,
+        "style": "dark",
+        "tags": [
+          "hardware",
+          "temperatures",
+          "node-exporter"
+        ],
+        "time": {
+          "from": "now-5m",
+          "to": "now"
+        },
+        "timepicker": {},
+        "timezone": "browser",
+        "title": "Node Hardware Temperatures",
+        "uid": "node-hw-temperatures"
+      }
