@@ -22,10 +22,11 @@ data:
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "thresholds"
+                "mode": "continuous-GrYlRd"
               },
+              "decimals": 1,
               "mappings": [],
-              "max": 100,
+              "max": 110,
               "min": 0,
               "thresholds": {
                 "mode": "absolute",
@@ -35,8 +36,8 @@ data:
                     "value": null
                   },
                   {
-                    "color": "#EAB308",
-                    "value": 70
+                    "color": "#EAB839",
+                    "value": 75
                   },
                   {
                     "color": "red",
@@ -56,6 +57,8 @@ data:
           },
           "id": 1,
           "options": {
+            "barShape": "flat",
+            "barWidthFactor": 0.3,
             "orientation": "auto",
             "reduceOptions": {
               "calcs": [
@@ -66,6 +69,7 @@ data:
             },
             "showThresholdLabels": false,
             "showThresholdMarkers": true,
+            "sparkline": true,
             "text": {}
           },
           "pluginVersion": "10.0.0",
@@ -76,7 +80,7 @@ data:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "max without (instance, pod, job, service, endpoint, container) (\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"platform_coretemp_0\"} > 1,\n    \"sensor_name\", \"CPU Core $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"nvme_nvme0\"} > 1,\n    \"sensor_name\", \"NVMe Sensor $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    node_hwmon_temp_celsius{chip=~\"thermal_thermal_zone.*\"} > 1,\n    \"sensor_name\", \"Thermal Zone $1\", \"chip\", \"thermal_thermal_zone([0-9]+)\"\n  )\n)",
+              "expr": "max without (instance, pod, job, service, endpoint, container) (\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"platform_coretemp_0\"} > 1,\n    \"sensor_name\", \"CPU Core $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    node_hwmon_temp_celsius{chip=\"nvme_nvme0\"} > 1,\n    \"sensor_name\", \"NVMe Sensor $1\", \"sensor\", \"temp([0-9]+)\"\n  )\n  or\n  label_replace(\n    max without (sensor) (node_hwmon_temp_celsius{chip=~\"thermal_thermal_zone.*\"} > 1),\n    \"sensor_name\", \"Thermal Zone $1\", \"chip\", \"thermal_thermal_zone([0-9]+)\"\n  )\n)",
               "legendFormat": "{{sensor_name}}",
               "range": false,
               "refId": "A"
@@ -102,4 +106,4 @@ data:
       "timezone": "browser",
       "title": "Node Hardware Temperatures",
       "uid": "node-hw-temperatures"
-    }
+    }   }
