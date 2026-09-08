@@ -9,7 +9,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: ntfy-data
+  #volumeName: ntfy-data
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -22,7 +22,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: ntfy-cache
+  #volumeName: ntfy-cache
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -35,4 +35,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: ntfy-logs
+  #volumeName: ntfy-logs
