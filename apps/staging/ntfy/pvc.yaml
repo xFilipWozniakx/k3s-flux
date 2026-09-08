@@ -25,3 +25,16 @@ spec:
     requests:
       storage: 1000Mi
   volumeName: ntfy-data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cache-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 1000Mi
+  volumeName: ntfy-cache

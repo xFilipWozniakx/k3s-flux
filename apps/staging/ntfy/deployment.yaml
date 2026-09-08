@@ -30,6 +30,8 @@ spec:
           readOnly: true
         - name: data
           mountPath: "/database"
+        - name: cache
+          mountPath: "/var/cache/ntfy/attachments"
       volumes:
         - name: config
           configMap:
@@ -37,4 +39,7 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: ntfy-pvc
+        - name: cache
+          persistentVolumeClaim:
+            claimName: cache-pvc
 
