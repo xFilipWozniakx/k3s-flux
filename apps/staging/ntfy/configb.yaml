@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: ntfy
+data:
+    server.yml: # Template: https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
+    base-url: https://notifications.filipwozniak.org
+    listen-http: ":9999"
+    behind-proxy: true
+    require-login: true
+    enable-login: true
+    auth-file: /database/user.db
+    auth-default-access: "deny-all"
+    auth-users:
+    - "server:$2b$12$Rz897ymKbB8XgcwbMiWcPe3mzS1iUmg8mCgBEsgmFGpd8cZWm.Byu:admin"
+    - "dummy:$2b$12$FuU4qNv3fFCx3Dx/TbdKVOfuWWfPo6ztNxTU2Dk9zFQ.AKZ0CcBxS:user"
+    auth-access:
+    - "dummy:pi-related:rw"
+    auth-tokens:
+    - "pi-blog:tk_gxe6kkchlq78yl2qae5w6yipyubhq:auto-token"
