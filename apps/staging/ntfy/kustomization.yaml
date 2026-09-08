@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: ntfy
 resources:
  - config.yaml
- # - deployment.yaml
+ - deployment.yaml
  - namespace.yaml
  - pvc.yaml
  - service.yaml
