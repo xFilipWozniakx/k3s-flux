@@ -38,3 +38,16 @@ spec:
     requests:
       storage: 1000Mi
   volumeName: ntfy-cache
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: logs-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 1000Mi
+  volumeName: ntfy-logs

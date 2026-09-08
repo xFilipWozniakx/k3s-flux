@@ -24,6 +24,7 @@ spec:
         ports:
         - containerPort: 9999
           name: http
+
         volumeMounts:
         - name: config
           mountPath: "/etc/ntfy"
@@ -32,6 +33,8 @@ spec:
           mountPath: "/database"
         - name: cache
           mountPath: "/var/cache/ntfy/attachments"
+        - name: logs
+          mountPath: "/var/logs"
       volumes:
         - name: config
           configMap:
@@ -42,4 +45,6 @@ spec:
         - name: cache
           persistentVolumeClaim:
             claimName: cache-pvc
-
+        - name: logs
+          persistentVolumeClaim:
+            claimName: logs-pvc
