@@ -12,9 +12,12 @@
 - [x] homarr ( local )
 - [x] linkding ( local )
 - [x] ntfy
+  - [ ] smtp-server
+  - [ ] Web-push support
+  - [ ] metrics
 - [x] audiobookshelf ( local )
 - [x] few custom apps for my homarr dashboard: 
 - [x] mini bitcoin dashboard ( hand made )
 - [x] nfs-server 
-- [ ] ftp server
+
 - [ ] matrix chat server
