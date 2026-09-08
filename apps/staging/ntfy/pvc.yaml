@@ -8,7 +8,7 @@ spec:
   storageClassName: "local-path"
   resources:
     requests:
-      storage: 1000Mi
+      storage: 1Gi
   volumeName: ntfy-data
 ---
 apiVersion: v1
@@ -21,7 +21,7 @@ spec:
   storageClassName: "local-path"
   resources:
     requests:
-      storage: 1000Mi
+      storage: 1Gi
   volumeName: ntfy-cache
 ---
 apiVersion: v1
@@ -34,5 +34,5 @@ spec:
   storageClassName: "local-path"
   resources:
     requests:
-      storage: 1000Mi
+      storage: 1Gi
   volumeName: ntfy-logs
