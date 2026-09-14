@@ -2,6 +2,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress 
 metadata:
   name: linkding-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec: 
   ingressClassName: traefik
   rules: 
@@ -15,3 +18,8 @@ spec:
                   number: 9090
             path: / 
             pathType: Prefix
+  tls:
+    - hosts:
+      - ld.filipwozniak.org
+      secretName: linkding-tls-prod-secret
+
