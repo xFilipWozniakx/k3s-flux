@@ -4,3 +4,4 @@ apps/staging/homarr/values.yaml
 apps/staging/homarr/info
 apps/staging/cloudflared/secret.yaml
 secrets/
+templates/
