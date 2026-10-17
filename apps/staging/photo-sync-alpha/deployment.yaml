@@ -4,7 +4,7 @@ metadata:
   name: photo-sync-server
   namespace: photo-sync
   labels:
-    app: photo-server 
+    app: photo-server
 spec:
   replicas: 1
   strategy:
@@ -15,14 +15,13 @@ spec:
   template:
     metadata:
       labels:
-        app: photo-server 
-      spec:
-        containers:
-          - name: photo-sync-server
-            image: "ghcr.io/xfilipwozniakx/photo_sync:v0.1.0"
-            imagePullPolicy: IfNotPresent
-            ports:
-              - name: socket
-                containerPort: 5555
-                protocol: TCP
-
+        app: photo-server
+    spec:
+      containers:
+        - name: photo-sync-server
+          image: "ghcr.io/xfilipwozniakx/photo_sync:v0.1.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: socket
+              containerPort: 5555
+              protocol: TCP
