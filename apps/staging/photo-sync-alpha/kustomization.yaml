@@ -6,5 +6,5 @@ resources:
   - namespace.yaml
   - service.yaml
   - pull-secret.yaml
-  - pvcs.yaml 
+  - pvc.yaml 
 
