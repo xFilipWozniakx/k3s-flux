@@ -8,7 +8,7 @@ spec:
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   ports:
-    - name: TLS
+    - name: tls
       port: 5555
       protocol: TCP
       targetPort: 5555
