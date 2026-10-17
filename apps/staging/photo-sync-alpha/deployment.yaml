@@ -17,6 +17,10 @@ spec:
       labels:
         app: photo-server
     spec:
+      securityContext:
+        allowPrivilegeEscalation: false
+        runAsGroup: 1000
+        runAsUser: 1000
       imagePullSecrets:
         - name: pull-ghcr-secret
       containers:
