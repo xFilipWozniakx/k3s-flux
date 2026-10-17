@@ -21,3 +21,4 @@
 - [x] nfs-server 
 
 - [ ] matrix chat server
+- [ ] photo sychronizer of my own creation, made in python3 sync android phone with my server.
