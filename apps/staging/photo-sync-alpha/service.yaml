@@ -5,11 +5,11 @@ metadata:
   labels:
     app: photo-sync-service
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ipFamilyPolicy: SingleStack
   ports:
     - name: tls
-      port: 5555
+      port: 12000
       protocol: TCP
       targetPort: 5555
   selector:

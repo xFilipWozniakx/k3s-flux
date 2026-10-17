@@ -27,3 +27,25 @@ spec:
             - name: socket
               containerPort: 5555
               protocol: TCP
+          volumeMounts:
+            - name: files
+              mountPath: "/app/photo_sync/files"
+            - name: logs 
+              mountPath: "/app/photo_sync/logs"
+            - name: db 
+              mountPath: "/app/photo_sync/database"
+      volumes:
+        - name: files
+          persistentVolumeClaim: 
+            claimName: files-pvc
+        - name: logs
+          persistentVolumeClaim:
+            claimName: logs-pvc
+        - name: db 
+          persistentVolumeClaim:
+            claimName: db-pvc
+
+
+
+ 
+    
