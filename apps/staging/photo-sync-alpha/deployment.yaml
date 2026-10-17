@@ -17,6 +17,8 @@ spec:
       labels:
         app: photo-server
     spec:
+      imagePullSecrets:
+        - name: pull-ghcr-secret
       containers:
         - name: photo-sync-server
           image: "ghcr.io/xfilipwozniakx/photo_sync:v0.1.0"
