@@ -27,7 +27,7 @@ spec:
         - name: photo-sync-server
           securityContext:
             allowPrivilegdeEscalation: false
-          image: "ghcr.io/xfilipwozniakx/photo_sync:v0.1.1"
+          image: "ghcr.io/xfilipwozniakx/photo_sync:v0.1.2"
           imagePullPolicy: IfNotPresent
           ports:
             - name: socket
