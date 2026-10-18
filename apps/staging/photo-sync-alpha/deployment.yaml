@@ -50,8 +50,3 @@ spec:
         - name: db 
           persistentVolumeClaim:
             claimName: db-pvc
-
-
-
- 
-    
