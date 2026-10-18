@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: flux-system
+resources:
+  - image_repo_photo_sync.yaml
+  - pull-secret.yaml
+  - image_update_automation.yaml
+  - image_policy.yaml
