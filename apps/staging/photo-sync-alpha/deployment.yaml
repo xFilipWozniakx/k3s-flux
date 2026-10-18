@@ -18,13 +18,15 @@ spec:
         app: photo-server
     spec:
       securityContext:
-        allowPrivilegeEscalation: false
         runAsGroup: 1000
         runAsUser: 1000
+        fsGroup: 1000
       imagePullSecrets:
         - name: pull-ghcr-secret
       containers:
         - name: photo-sync-server
+          securityContext:
+            allowPrivilegdeEscalation: false
           image: "ghcr.io/xfilipwozniakx/photo_sync:v0.1.1"
           imagePullPolicy: IfNotPresent
           ports:
