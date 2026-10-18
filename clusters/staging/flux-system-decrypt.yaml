@@ -10,7 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./clusters/flux-system/photo-sync-auto-image-update
+  path: ./flux-system/photo-sync-auto-image-update
   prune: true
   decryption:
     provider: sops
