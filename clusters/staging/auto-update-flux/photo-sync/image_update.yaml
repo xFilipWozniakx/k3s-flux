@@ -19,6 +19,8 @@ spec:
         .NewValue}}{{end}}'
     push:
       branch: main
+      secretRef: 
+        name: push-photo-sync-updates-with-flux
   interval: 5s
   update:
     path: /apps/staging/photo-sync-alpha

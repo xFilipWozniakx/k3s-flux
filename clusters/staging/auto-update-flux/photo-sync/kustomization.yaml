@@ -6,3 +6,4 @@ resources:
   - image_update.yaml
   - image_policy.yaml
   - photo-secret.yaml
+  - push-secret.yaml
