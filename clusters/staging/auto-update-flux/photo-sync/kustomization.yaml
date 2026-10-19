@@ -5,3 +5,4 @@ resources:
   - image_repo.yaml
   - image_update.yaml
   - image_policy.yaml
+  - photo-secret.yaml
