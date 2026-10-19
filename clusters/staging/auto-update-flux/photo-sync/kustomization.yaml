@@ -2,7 +2,7 @@ apiversion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: photo-sync
 resources:
-  - image_repo_photo_sync.yaml
+  - image_repo.yaml
   - pull-secret.yaml
-  - image_update_automation.yaml
-  - image_policy.yaml
+#   - image_update.yaml
+#   - image_policy.yaml
