@@ -5,6 +5,9 @@ metadata:
   name: photo-sync-server
   namespace: photo-sync
   spec:
+    sourceRef:
+      kind: GitRepository
+      name: flux-system
     git:
       checkout:
         ref:
@@ -17,10 +20,7 @@ metadata:
           .NewValue}}{{end}}'
       push:
         branch: main
-  interval: 5s
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  update:
-    path: /apps/staging/photo-sync-alpha
-    strategy: Setters
+    interval: 5s
+    update:
+      path: /apps/staging/photo-sync-alpha
+      strategy: Setters
