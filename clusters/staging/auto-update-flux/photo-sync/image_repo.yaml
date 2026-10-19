@@ -5,6 +5,6 @@ metadata:
 spec:
   image: ghcr.io/xfilipwozniakx/photo-sync
   secretRef:
-    name: image-creds-photo-sync
+    name: pull-ghcr-secret
   interval: 5s
 
