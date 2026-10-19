@@ -27,7 +27,7 @@ spec:
         - name: photo-sync-server
           securityContext:
             allowPrivilegdeEscalation: false
-          image: "ghcr.io/xfilipwozniakx/photo_sync:v0.1.3" # {"$imagepolicy": "flux-system:photo-sync-server"}
+          image: "ghcr.io/xfilipwozniakx/photo_sync:v0.1.3" # {"$imagepolicy": "photo-sync:photo-sync-server"}
           imagePullPolicy: IfNotPresent
           ports:
             - name: socket
