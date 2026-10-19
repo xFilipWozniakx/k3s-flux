@@ -7,6 +7,6 @@ spec:
     name: photo-sync-server
   filterTags: 
     pattern: '^v[0-9]\.[0-9]\.[0-9]'
-    policy:
-      semver:
-        range: 'x.x.x'
+  policy:
+    semver:
+      range: 'x.x.x'
