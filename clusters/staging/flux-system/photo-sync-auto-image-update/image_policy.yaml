@@ -1,10 +1,10 @@
 apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImagePolicy
 metadata:
-  name: photo-sync
+  name: photo-sync-server
 spec:
   imageRepositoryRef:
-    name: photo-sync
+    name: photo-sync-server
   policy:
     semver:
       range: x.x.x

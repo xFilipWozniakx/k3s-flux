@@ -2,9 +2,9 @@
 apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImageUpdateAutomation
 metadata:
-  name: flux-system
-  namespace: flux-system
-spec:
+  name: photo-sync-server
+  namespace: photo-sync
+  spec:
   git:
     checkout:
       ref:

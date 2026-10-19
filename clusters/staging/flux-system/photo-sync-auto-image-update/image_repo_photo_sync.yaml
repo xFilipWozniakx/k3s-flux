@@ -1,7 +1,7 @@
 apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImageRepository
 metadata:
-  name: photo-sync
+  name: photo-sync-server
 spec:
   image: ghcr.io/xfilipwozniakx/photo-sync
   interval: 5s
