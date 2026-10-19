@@ -5,18 +5,18 @@ metadata:
   name: photo-sync-server
   namespace: photo-sync
   spec:
-  git:
-    checkout:
-      ref:
+    git:
+      checkout:
+        ref:
+          branch: main
+      commit:
+        author:
+          email: fluxcdbot@users.noreply.github.com
+          name: fluxcdbot
+        messageTemplate: '{{range .Changed.Changes}}{{print .OldValue}} -> {{println
+          .NewValue}}{{end}}'
+      push:
         branch: main
-    commit:
-      author:
-        email: fluxcdbot@users.noreply.github.com
-        name: fluxcdbot
-      messageTemplate: '{{range .Changed.Changes}}{{print .OldValue}} -> {{println
-        .NewValue}}{{end}}'
-    push:
-      branch: main
   interval: 5s
   sourceRef:
     kind: GitRepository
