@@ -3,7 +3,7 @@ kind: ImageRepository
 metadata:
   name: photo-sync-server
 spec:
-  image: ghcr.io/xfilipwozniakx/photo-sync
+  image: ghcr.io/xfilipwozniakx/photo_sync
   secretRef:
     name: pull-ghcr-secret
   interval: 5s
