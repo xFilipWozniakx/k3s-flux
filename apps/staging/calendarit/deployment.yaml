@@ -23,7 +23,7 @@ spec:
       # as root and drops into user 
       containers:
       - name: calendar-app
-        image: "ghcr.io/xfilipwozniakx/calendarit:latest"  
+        image: "ghcr.io/xfilipwozniakx/calendar_it:latest"  
         imagePullPolicy: Always
         env:
         - name: DATABASE_PROVIDER
