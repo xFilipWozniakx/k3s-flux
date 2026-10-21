@@ -1,0 +1,3 @@
+once i while i should create auto back up -> tar.gz encryption of those files from
+nfs since they dissapired at cluster crash. 
+plus get different image for nfs that will not need to run as root

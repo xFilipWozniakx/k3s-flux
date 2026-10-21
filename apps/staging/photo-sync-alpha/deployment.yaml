@@ -1,3 +1,4 @@
+# --------- alpha version of my server <-- android 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,6 +28,7 @@ spec:
         - name: photo-sync-server
           securityContext:
             allowPrivilegdeEscalation: false
+          # flux have taken over updating images without PR / only for rapid testing new versions / 1s checks
           image: "ghcr.io/xfilipwozniakx/photo_sync:v0.1.5" # {"$imagepolicy": "flux-system:photo-sync-server"}
           imagePullPolicy: IfNotPresent
           ports:
