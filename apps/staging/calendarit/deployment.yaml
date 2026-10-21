@@ -32,7 +32,7 @@ spec:
           value: /var/appdata
         ports:
         - name: https
-          containerPort: 8080
+          containerPort: 80
           protocol: TCP
         volumeMounts:
         - name: files
