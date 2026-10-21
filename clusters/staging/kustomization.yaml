@@ -6,4 +6,4 @@ resources:
   - infrastructure.yaml
   - monitoring.yaml
   - flux-system
-  - ./base/storage_classes
+  - ../base/storage_classes
