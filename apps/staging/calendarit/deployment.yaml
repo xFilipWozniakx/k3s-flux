@@ -26,25 +26,17 @@ spec:
         image: "ghcr.io/xfilipwozniakx/calendar_it:latest"  
         imagePullPolicy: Always
         env:
-        - name: DATABASE_PROVIDER
-          value: SQLite
-        - name: APPDATA_PATH
-          value: /personal
         - name: JWT_SIGNING_KEY
-          value: rzBdEl1YL/5JsdSiFJKDbBCiMdchrSswsxp2rK8vUP+s02rdR2c+CyxVbn8TT/ZB
-        - name: DISABLE_REGISTRATION
-          value: "False"
-        - name: Serilog__MinimumLevel__Default
-          value: debug
+          value: "rzBdEl1YL/5JsdSiFJKDbBCiMdchrSswsxp2rK8vUP+s02rdR2c+CyxVbn8TT/ZB"
         ports:
         - name: https
           containerPort: 8080
           protocol: TCP
-        volumeMounts:
-        - name: files
-          mountPath: "/app"
-      volumes:
-      - name: files
-        persistentVolumeClaim:
-          claimName: files-pvc
-
+#         volumeMounts:
+#         - name: files
+#           mountPath: "/app"
+#       volumes:
+#       - name: files
+#         persistentVolumeClaim:
+#           claimName: files-pvc
+# 
