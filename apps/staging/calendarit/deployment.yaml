@@ -1,0 +1,50 @@
+# this is for testing purposes only 
+# to be changed later on
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calendarit-deplo
+  namespace: calendarit 
+  labels:
+    app: calendarit-app 
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: calendarit-app
+  template:
+    metadata:
+      labels:
+        app: calendarit-app
+    spec:
+      # cannot use that because at the beggining app creates paths
+      # as root and drops into user 
+      containers:
+      - name: calendar-app
+        image: "ghcr.io/xfilipwozniakx/calendarit:latest"  
+        imagePullPolicy: Always
+        env:
+        - name: DATABASE_PROVIDER
+          value: SQLite
+        - name: APPDATA_PATH
+          value: /personal
+        - name: JWT_SIGNING_KEY
+          value: rzBdEl1YL/5JsdSiFJKDbBCiMdchrSswsxp2rK8vUP+s02rdR2c+CyxVbn8TT/ZB
+        - name: DISABLE_REGISTRATION
+          value: "False"
+        - name: Serilog__MinimumLevel__Default
+          value: debug
+        ports:
+        - name: https
+          containerPort: 8080
+          protocol: TCP
+        volumeMounts:
+        - name: files
+          mountPath: "/app"
+      volumes:
+      - name: files
+        persistentVolumeClaim:
+          claimName: files-pvc
+
