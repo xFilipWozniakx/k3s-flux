@@ -28,15 +28,17 @@ spec:
         env:
         - name: JWT_SIGNING_KEY
           value: "rzBdEl1YL/5JsdSiFJKDbBCiMdchrSswsxp2rK8vUP+s02rdR2c+CyxVbn8TT/ZB"
+        - name: APPDATA_PATH
+          value: /var/appdata
         ports:
         - name: https
           containerPort: 8080
           protocol: TCP
-#         volumeMounts:
-#         - name: files
-#           mountPath: "/app"
-#       volumes:
-#       - name: files
-#         persistentVolumeClaim:
-#           claimName: files-pvc
-# 
+        volumeMounts:
+        - name: files
+          mountPath: "/var/appdata"
+      volumes:
+      - name: files
+        persistentVolumeClaim:
+          claimName: files-pvc
+
