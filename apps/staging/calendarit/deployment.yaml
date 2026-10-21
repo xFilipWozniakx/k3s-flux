@@ -31,8 +31,8 @@ spec:
         - name: APPDATA_PATH
           value: /var/appdata
         ports:
-        - name: https
-          containerPort: 80
+        - name: http
+          containerPort: 8080
           protocol: TCP
         volumeMounts:
         - name: files
