@@ -9,16 +9,4 @@ spec:
   capacity:
     storage: 3Gi
   volumeName: calendarit
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: calendarit-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: "local-path-retain"
-  resources:
-    requests:
-      storage: 2.5Gi
-  volumeName: calendarit
+
