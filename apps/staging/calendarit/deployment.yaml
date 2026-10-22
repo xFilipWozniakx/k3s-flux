@@ -4,7 +4,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: calendarit-deplo
-  namespace: calendarit 
   labels:
     app: calendarit-app 
 spec:
@@ -24,7 +23,7 @@ spec:
       containers:
       - name: calendar-app
         image: "ghcr.io/xfilipwozniakx/calendar_it:latest"  
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: JWT_SIGNING_KEY
           value: "rzBdEl1YL/5JsdSiFJKDbBCiMdchrSswsxp2rK8vUP+s02rdR2c+CyxVbn8TT/ZB"
@@ -40,5 +39,5 @@ spec:
       volumes:
       - name: files
         persistentVolumeClaim:
-          claimName: files-pvc
+          claimName: calendarit-pvc
 

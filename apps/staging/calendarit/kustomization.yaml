@@ -4,5 +4,5 @@ namespace: calendarit
 resources:
   - deployment.yaml
   - namespace.yaml
-  - pvs.yaml
+  - pv.yaml
   - service.yaml
