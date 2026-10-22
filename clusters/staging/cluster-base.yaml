@@ -10,7 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./clusters/base/storage_classes
+  path: ./clusters/base/storage-classes
   decryption:
     provider: sops
     secretRef:
