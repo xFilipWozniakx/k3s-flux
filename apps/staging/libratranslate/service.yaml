@@ -12,4 +12,3 @@ spec:
       port: 5000
       protocol: TCP 
       targetPort: 3663
-
