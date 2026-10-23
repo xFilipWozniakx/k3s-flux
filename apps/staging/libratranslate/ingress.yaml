@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: libretranslate-ingress
+  annotations:
+    cert-manager.io/issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  labels:
+    app: libretranslate
+spec:
+  - host: translate.filipwozniak.org
+    http:
+      paths:
+      - backend:
+          service:
+            name: libretranslate-svc
+            port:
+              number: 3663
+        path: /
+        pathType: Prefix
+    rules:
+      tls:
+        - hosts:
+          - libretranslate.filipwozniak.org
+          secretName: libretranslate-tls
+
