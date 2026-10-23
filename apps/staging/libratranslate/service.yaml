@@ -5,7 +5,11 @@ metadata:
 spec:
   selector:
     app: libretranslate
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
   ports:
-  - port: 5000
-    targetPort: 3663
+    - name: translator-api
+      port: 5000
+      protocol: TCP 
+      targetPort: 3663
 
