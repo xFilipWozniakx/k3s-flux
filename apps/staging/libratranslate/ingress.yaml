@@ -8,19 +8,20 @@ metadata:
   labels:
     app: libretranslate
 spec:
-  - host: translate.filipwozniak.org
-    http:
-      paths:
-      - backend:
-          service:
-            name: libretranslate-svc
-            port:
-              number: 3663
-        path: /
-        pathType: Prefix
-    rules:
-      tls:
-        - hosts:
-          - libretranslate.filipwozniak.org
-          secretName: libretranslate-tls
+  ingressClassName: traefik
+  rules:
+    - host: translate.filipwozniak.org
+      http:
+        paths:
+        - backend:
+            service:
+              name: libretranslate-svc
+              port:
+                number: 3663
+          path: /
+          pathType: Prefix
+tls:
+  - hosts:
+    - libretranslate.filipwozniak.org
+    secretName: libretranslate-tls
 
