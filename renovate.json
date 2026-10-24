@@ -5,6 +5,7 @@
       "\\.yaml$"
     ]
   },
+
   "packageRules":[
     {
       "matchManagers": ["kubernetes"],
