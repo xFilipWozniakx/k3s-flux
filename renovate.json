@@ -4,5 +4,12 @@
     "fileMatch": [
       "\\.yaml$"
     ]
-  }
+  },
+  "packageRules":[
+    {
+      "matchManagers": ["kubernetes"],
+      "matchFileNames": ["**/gotk-components.yaml"],
+      "enabled": false
+    }
+  ]
 }
