@@ -40,7 +40,8 @@ spec:
             readOnly: true
       volumes:
         - name: proxy-logs-pvc
-          persistentVolumeClaim: proxy-pvc
+          persistentVolumeClaim: 
+            claimName: proxy-pvc
         - name: nginx-proxy-conf
           configMap:
             name: proxy-nginx
