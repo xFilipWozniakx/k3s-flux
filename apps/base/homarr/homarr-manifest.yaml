@@ -19,7 +19,6 @@ spec:
       labels:
         app.kubernetes.io/name: homarr
         app.kubernetes.io/instance: homarr
-        app.kubernetes.io/version: "v1.76.2"
     spec:
       # securityContext:
       #   fsGroup: 1000
