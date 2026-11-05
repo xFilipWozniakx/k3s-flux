@@ -5,11 +5,9 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: "local-path"
   resources:
     requests:
       storage: 1Gi
-  #volumeName: ntfy-data
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -18,11 +16,9 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: "local-path"
   resources:
     requests:
       storage: 1Gi
-  #volumeName: ntfy-cache
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -31,8 +27,18 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: "local-path"
   resources:
     requests:
       storage: 1Gi
-  #volumeName: ntfy-logs
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: proxy-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+

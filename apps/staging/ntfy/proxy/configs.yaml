@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: configMap
+metadata:
+    name: proxy-nginx
+data:
+    ntfy-proxy.conf: ENC[AES256_GCM,data:AQEwNvmPyclAao4xovlvXvB0iVx5mHmGF/Ugs8fE4NA2Mj+kiIIAcey952omxneuQORI4WvM4HQz4dxfF6YvAGMb5sGpjloOZDgNnPix8GCww13m3bao7sxbAcVZrorEsi4g8WIzuiclVi6G+OQZ/YBz80bV+IQQvSASOsjs8cizy29D9kXgNX3cid+wnP9iydCIEX+Vz0cgreW6ZWFsnS4LUQJI+u4C197Txia4xpDwFbYmtakoJXnWJ6Rws2TZSnqGxSHfbbuIYYqQhL1xdTOlY5oq039xZ3ehUsMHHwIM/SSZDB4Js84HfL34cVl6ygJvHszY6TuK0U8UDKEThzupeqUIOtA3ZA8qJk6iWTKqh+8n8PXWzAKja6w/OFkHwnmLJDZuFoWKkIs/KJxHDwknB8pEqNk4kFXDcgEUTVEBI09ZJaTEJoXaryXOGR+pD3IHe7Vew5sOMrRXnakjmx7znSwplo6+R2Boj92+dEaxnxfXloPi/jnQ6q5b3Dz/2FLX0NNvpFhVUtrL9X5kkWZvcbz/C8MWVaBMQv0jpebxR0ssosYVirXerSP/KJn7uYmA,iv:0aV0rUjQf/khBVDvrF3Ia2eljPDU9SGzYfoGSaB+C+8=,tag:VlOJZmzmoIF/+cpPCM98Tw==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA4eW9LT0Fub3hERmtub2ow
+            VnFuZzVNa3NqRGl0enFwOS9odUtySGlWekdNCjV3dnQ4aW1XVzNKVzZEa0dQZklM
+            RU9DcTRDYU51UCtuTTdJN0luZnhtWGcKLS0tIHIwQVYrdGJSRlkzMDRhL2pFanUx
+            cXZLakxEVk4yU25zNVVmbEpYRjE0bFEKTcGsCEjmIlUTRWsOH+1uQ8kIcXqI1+Ng
+            hwZqdsYZExEcufsxfdtcFCh4R/iefHKsCrW0PpBRqSCBPD0+STF94w==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-11-05T15:50:16Z"
+    mac: ENC[AES256_GCM,data:04bh9vIr5diIlSg0PL1gA8Tz8xSh7uhgV68+eCXtRDpOc3fONAlLG+zGDazlYVixqtnLzG4zRJqv/UvjsWsTk8bLfZIzf6Paf2xk9KFyC1Thleu1dNkAsGx+PF5L0v9FxCM+/cTUzCBdgZO42XBvniiFLA7Vn3Cy6r4tVWpwKPY=,iv:pV3fUMENVFAa4Zh3IVamWtS9eL7+j4VoE5KnIF+OfyY=,tag:/WhQoaXFPfjEQkb3yezDSw==,type:str]
+    version: 3.13.3
