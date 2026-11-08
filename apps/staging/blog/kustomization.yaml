@@ -4,5 +4,5 @@ namespace: blog
 resources:
 #  - default-cfg.yaml
 #  - deployment.yaml
-  - pvc.yaml
+#  - pvc.yaml
   - namespace.yaml
