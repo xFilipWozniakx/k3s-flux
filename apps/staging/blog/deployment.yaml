@@ -47,7 +47,7 @@ spec:
               readOnly: true
               subPath: cloudflare_real_ip.conf
             - name: nginx-confs
-              mountPath: /etc/nginx/security/security/headers.conf
+              mountPath: /etc/nginx/security/headers.conf
               readOnly: true
               subPath: headers.conf
             - name: shared-files 
