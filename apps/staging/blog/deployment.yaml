@@ -32,7 +32,7 @@ spec:
           ports:
             - containerPort: 8000 
               name: www-port 
-              protocol: tcp 
+              protocol: TCP 
           volumeMounts:
             - name: nginx-confs
               mountPath: /etc/nginx/nginx.conf
