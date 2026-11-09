@@ -134,12 +134,12 @@ spec:
           emptyDir: {} 
         - name: db-space
           persistentVolumeClaim:
-            claimName: temp-db
+            claimName: temp-db-pvc
 
         # shared files 
         - name: shared-files
           persistentVolumeClaim: 
-            claimName: php-app
+            claimName: php-app-pvc
         - name: logs
           persistentVolumeClaim: 
             claimName: logs-pvc
