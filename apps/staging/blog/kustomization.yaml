@@ -2,7 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: blog
 resources:
-#  - default-cfg.yaml
-#  - deployment.yaml
+  - cfgs-nginx.yaml
+  - cfgs-phpfpm.yaml
+  - deployment.yaml
   - pvc.yaml
   - namespace.yaml
+  - service.yaml

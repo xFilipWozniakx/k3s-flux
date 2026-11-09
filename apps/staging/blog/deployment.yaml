@@ -1,0 +1,149 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: www-server-blog
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: www-server
+  template:
+    metadata:
+      labels:
+        app: www-server
+    spec:
+      containers:
+        - name: nginx
+
+          securitycontext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsGroup: 10001
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+
+          image: ghcr.io/xfilipwozniakx/nginx-unprivileged:1.30.6r1
+          imagePullPolicy: ifNotPresent
+          ports:
+            - containerPort: 8000 
+              name: www-port 
+              protocol: tcp 
+          volumeMounts:
+            - name: nginx-confs
+              mountPath: /etc/nginx/nginx.conf
+              readOnly: true 
+              subPath: nginx.conf 
+            - name: nginx-confs
+              mountPath: /etc/nginx/http.d/default.conf 
+              readOnly: true
+              subPath: default.conf
+            - name: nginx-confs
+              mountPath: /etc/nginx/http.d/cloudflare_real_ip.conf
+              readOnly: true
+              subPath: cloudflare_real_ip.conf
+            - name: nginx-confs
+              mountPath: /etc/nginx/security/security/headers.conf
+              readOnly: true
+              subPath: headers.conf
+            - name: shared-files 
+              mountPath: /var/www/blog
+              readOnly: true 
+            - name: logs 
+              mountPath: /var/log/nginx
+              subPath: nginx
+            - name: nginx-tmp
+              mountPath: /tmp
+
+
+        - name: php-fpm
+          image: dhi.io/php:8.5.12-fpm
+
+          securityContext:
+            runAsNonRoot: true 
+            runAsUser: 65532 
+            runAsGroup: 65532
+            allowPrivilegeEscalation: false 
+            readOnlyRootFilesystem: true 
+            capabilities:
+              drop: 
+                - ALL 
+
+          replicas: 1 
+          volumeMounts:
+            - name: shared-files
+              mountPath: /var/www/blog
+              readOnly: true
+            - name: logs 
+              mountPath: /var/log/php
+              subPath: php 
+          # configs 
+            - name: fpm-confs 
+              mountPath: /etc/php-8.5/php.ini 
+              subPath: php.ini 
+              readOnly: true 
+            - name: fpm-confs
+              mountPath: /etc/php-8.5/php-fpm.conf 
+              subPath: php-fpm.conf 
+              readOnly: true 
+            - name: fpm-confs 
+              mountPath: /etc/php-8.5/php-fpm.d/www.conf
+              subPath: www.conf
+              readOnly: true 
+            - name: fpm-confs 
+              mountPath: /etc/php-8.5/conf.d/fpm.ini
+              subPath: fpm.ini 
+              readOnly: true 
+            - name: db-space 
+              mountPath: /var/www/db
+            - name: php-tmp 
+              mountPath: /tmp
+
+      volumes:
+        - name: nginx-confs
+          configMap:
+            name: ngnx-confs
+            items:
+              - key: nginx.conf 
+                path: nginx.conf
+              - key: default.conf 
+                path: default.conf 
+              - key: cloudflare_real_ip.conf 
+                path: cloudflare_real_ip.conf
+              - key: headers.conf
+                path: headers.conf
+        - name: fpm-confs
+          configMap: 
+            name: fpm-confs 
+            items:
+              - key: fpm.ini
+                path: fpm.ini
+              - key: php-fpm.conf
+                path: php-fpm.conf 
+              - key: php.ini
+                path: php.ini 
+              - key: www.conf
+                path: www.conf
+        - name: php-tmp
+          emptyDir: {} 
+        - name: nginx-tmp
+          emptyDir: {} 
+        - name: db-space
+          persistentVolumeClaim:
+            claimName: temp-db
+
+        # shared files 
+        - name: shared-files
+          persistentVolumeClaim: 
+            claimName: php-app
+        - name: logs
+          persistentVolumeClaim: 
+            claimName: logs-pvc
+
+
+          
+
