@@ -28,7 +28,7 @@ spec:
                 - ALL
 
           image: ghcr.io/xfilipwozniakx/nginx-unprivileged:1.30.6r1
-          imagePullPolicy: ifNotPresent
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000 
               name: www-port 
