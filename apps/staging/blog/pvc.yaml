@@ -1,33 +1,79 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name:  
+  labels:
+    name: php-app-pv
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+---
 apiVersion: v1 
 kind: PersistentVolumeClaim
 metadata:
-  name: php-app 
+  name: php-app-pvc
 spec:
+  volumeName: php-app-pv
   accessModes:
     - ReadWriteOnce 
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: temp-db
+  labels:
+    name: temp-db-pv
+spec:
+  capacity:
+    storage: 1.5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1 
+kind: PersistentVolumeClaim
+metadata:
+  name: temp-db-pvc
+spec:
+  volumeName: temp-db-pv
+  accessModes:
+    - ReadWriteOnce 
+  resources:
+    requests:
+      storage: 1.5Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: blog-logs-pv
+  labels:
+    name: blog-logs 
+spec:
+  capacity:
+    storage: 2.5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1 
 kind: PersistentVolumeClaim
 metadata:
   name: logs-pvc
 spec:
+  volumeName: blog-logs-pv
   accessModes:
     - ReadWriteOnce 
   resources:
     requests:
       storage: 2.5Gi
----
-apiVersion: v1 
-kind: PersistentVolumeClaim
-metadata:
-  name: temp-db
-spec:
-  accessModes:
-    - ReadWriteOnce 
-  resources:
-    requests:
-      storage: 1Gi
+
 
