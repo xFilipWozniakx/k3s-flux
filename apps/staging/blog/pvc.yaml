@@ -88,3 +88,34 @@ spec:
   resources:
     requests:
       storage: 2.5Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: media-pv
+spec:
+  capacity:
+    storage: 2.5Gi
+  storageClassName: local-path-retain
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/lib/rancher/k3s/storage/media 
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: blog 
+    name: media-pvc
+---
+apiVersion: v1 
+kind: PersistentVolumeClaim
+metadata:
+  name: media-pvc
+spec:
+  volumeName: media-pv
+  accessModes:
+    - ReadWriteOnce 
+  resources:
+    requests:
+      storage: 2.5Gi
+

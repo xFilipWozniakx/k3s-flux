@@ -60,7 +60,8 @@ spec:
               subPath: nginx
             - name: nginx-tmp
               mountPath: /tmp
-
+            - name: media 
+              mountPath: /var/www/blog/media
 
         - name: php-fpm
           image: dhi.io/php:8.5.12-fpm
@@ -103,6 +104,8 @@ spec:
               mountPath: /var/www/db
             - name: php-tmp 
               mountPath: /tmp
+            - name: media 
+              mountPath: /var/www/blog/media
 
       volumes:
         - name: nginx-confs
@@ -144,6 +147,9 @@ spec:
         - name: logs
           persistentVolumeClaim: 
             claimName: logs-pvc
+        - name: media 
+          persistentVolumeClaim: 
+            claimName: media-pvc
 
 
           
