@@ -8,4 +8,4 @@ resources:
   - pvc.yaml
   - namespace.yaml
   - service.yaml
-  - dhi-io-pass.yaml
+  - dhi-io-secret.yaml
