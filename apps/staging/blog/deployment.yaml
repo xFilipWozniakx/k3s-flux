@@ -63,7 +63,7 @@ spec:
         - name: php-fpm
           image: dhi.io/php:8.5.12-fpm
           imagePullSecrets: 
-            - name: dhi-pull-secret
+            - name: dhi-io-creds
 
           securityContext:
             runAsNonRoot: true 
