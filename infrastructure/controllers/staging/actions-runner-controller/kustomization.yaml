@@ -5,3 +5,4 @@ resources:
   - hrr-rssc.yaml
   - hr-rssc.yaml
   - namespace.yaml
+  - token-php-blog.yaml 
