@@ -10,7 +10,7 @@ spec:
       version: '0.xx.x'
       sourceRef:
         kind: HelmRepository
-        name: arc
+        name: actions-runner-controller
       interval: 1h
   releaseName: arc
   install:
@@ -26,4 +26,3 @@ spec:
   values:
     crds:
       enabled: true
-
