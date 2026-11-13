@@ -1,0 +1,39 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: arc
+spec:
+  interval: 1h
+  type: oci
+  url: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: arc
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: gha-runner-scale-set-controller
+      version: '0.xx.x'
+      sourceRef:
+        kind: HelmRepository
+        name: arc
+        interval: 1h
+  releaseName: arc
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+  driftDetection:
+    mode: enabled
+    ignore:
+    - paths: ["/spec/replicas"]
+      target:
+        kind: Deployment
+  values:
+    crds:
+      enabled: true
+
