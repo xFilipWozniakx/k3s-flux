@@ -27,7 +27,7 @@ spec:
   values:
     
     githubConfigUrl: "https://github.com/xFilipWozniakx/blog-php-code"
-    githubConfigSecret: php-ar-secret"
+    githubConfigSecret: php-ar-secret
     # github_token: LITERAL_VALUE if mixed up causes errors 
     
     scaleSetLabels: ['blog-ephemeral-runners']
