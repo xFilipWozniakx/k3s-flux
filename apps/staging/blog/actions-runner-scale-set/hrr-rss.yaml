@@ -1,0 +1,49 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: actions-runner-scale-set
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: gha-runner-scale-set
+      version: '0.15.1'
+      sourceRef:
+        kind: HelmRepository
+        name: actions-runner-scale-set
+      interval: 1h
+  releaseName: arc
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+  driftDetection:
+    mode: enabled
+    ignore:
+    - paths: ["/spec/replicas"]
+      target:
+        kind: Deployment
+  
+  values:
+    
+    githubConfigUrl: "https://github.com/xFilipWozniakx/blog-php-code"
+    githubConfigSecret:
+      github_token: "php-ar-secret"
+    
+    scaleSetLabels: ['blog-ephemeral-runners']
+    
+    maxRunners: 3 
+    minRunners: 0 
+    
+    runnerScaleSetName: "blog-runners"
+    
+    # storage 
+    containerMode:
+      type: "kubernetes"
+      kubernetesModeWorkVolumeClaim:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "local-path"
+        resources:
+          requests:
+            storage: 1Gi
+      kubernetesModeAdditionalRoleRules: [] 
