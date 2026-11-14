@@ -15,7 +15,7 @@ spec:
         fsGroup: 10000
       containers:
       - name: ntfy
-        image: binwiederhier/ntfy:v2.37
+        image: binwiederhier/ntfy:v2.38
         args: ["serve"]
         resources:
           limits:
