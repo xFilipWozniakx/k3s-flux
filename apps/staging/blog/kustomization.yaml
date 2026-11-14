@@ -9,3 +9,5 @@ resources:
   - namespace.yaml
   - service.yaml
   - dhi-io-secret.yaml
+  - pre-creation
+  - actions-runner-scale-set
