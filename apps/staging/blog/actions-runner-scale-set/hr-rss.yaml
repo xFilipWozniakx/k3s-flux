@@ -1,3 +1,4 @@
+# /data/k3s+flux/apps/staging/blog/actions-runner-scale-set/hr-rss.yaml 
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
@@ -6,5 +7,6 @@ spec:
   interval: 1h
   type: oci
   url: oci://ghcr.io/actions/actions-runner-controller-charts
+
 
 
