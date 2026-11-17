@@ -10,3 +10,4 @@ resources:
   - service.yaml
   - dhi-io-secret.yaml
   - actions-runner-scale-set
+  - pre-creation
