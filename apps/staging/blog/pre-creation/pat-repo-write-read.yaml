@@ -1,0 +1,22 @@
+# PAT for image to handle repo reading/writing | php-builder is going to use it for pvc preparation
+apiVersion: v1
+data:
+    PAT: ENC[AES256_GCM,data:di1IBd1n0AdiDHTP6Je7rMNE0iCzPZK6dRWaP97xiP3wP9Cs4QbwxCWchbYqVRNnonA9JZz02krJ03+nCnWXYON0OohPw55+4f9WOFMsrzQT9C7mwSwOhpKLUSLo/DbeNRTnDqKEa91G+5ZDQW+iNer4/nTQDsOcybNNmw==,iv:2JPfWVxF1Gnn/OaRaXYemPOSZp55CzrdHPU7ntQEyaE=,tag:i3m+XRMvfDlWaRzuMh4dwA==,type:str]
+kind: Secret
+metadata:
+    name: pat-for-builder
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBoSmdpTXhDUXZhWGU4cXF6
+            MEhVK0FMcktYcEE3VnlvS2JkT1pJVU1kOVNBCkVIVWplc2VEZnNsSXFCOE1OZFR3
+            QkFOL0swNWJiODVTVVRSMS9McnAzL2MKLS0tIEtqSUcvQTQzVDlBNTR6dXMvYy9q
+            NGY0MVpiSnZpTFlwS3BKV2UvUDlxZzQKiPK1DnfWMsolfiuxWcM8dXkxH5hH9YvS
+            oqMgeqLUzvZiCk6OgxlmC9TdUzjCbQG2XMaZvOA9zL3HRq3TXDeX/w==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-11-17T13:33:37Z"
+    mac: ENC[AES256_GCM,data:v1wkyyA0angQiXlFqX+XMbcCQxoCrcwCS2ZdlVLxobV8DQkRe8d37aUlA4mWI+5QCBtVEaC34ZQD2Iq9LtIORaajgGxHqDuCyqXA1WX5LnQPqh1Zk1T4kgDccO7EiDGDOuFSuBMW094kkpB/X07Ehkz+0joKsRJlfd9Oeb6AkK4=,iv:Omb0A278+XdbfCPJ6MazKkdHk0tvK1DhToAqFDrEveA=,tag:GYQqcXEaQXtwGjLRXgeefA==,type:str]
+    version: 3.13.3
