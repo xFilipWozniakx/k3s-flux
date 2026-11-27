@@ -143,7 +143,7 @@ spec:
         # shared files 
         - name: shared-files
           persistentVolumeClaim: 
-            claimName: php-code-pvc-59faee0
+            claimName: php-code-pvc-e3f4b45
         - name: logs
           persistentVolumeClaim: 
             claimName: logs-pvc
