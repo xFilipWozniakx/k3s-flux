@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+    AES_256_BACKUP: ENC[AES256_GCM,data:4YTQQ37XKObzTQoNtn/GkCD0KQncNpnIRAdqGBGB93nal/3lVQp98X0SrAv/Yk3b3/zHDAg3Gzluyo3GX8bKM0wmFQQ9MZum7L4YR6/ccBKQYLerJFl0qw==,iv:EnkVtLwhtREGE1grwVwvFP+olSS5k+r7kG9LXdimJSA=,tag:X8R4eQmUe6+I0dxIa4OsbQ==,type:str]
+kind: Secret
+metadata:
+    name: aes-256-cgm-backup
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAzeVlyY0Yyb3d2MlBiem9s
+            R1EweDBHOU9CRGxyY0kwNnlPOXhNSlZtVlRFCjhaK2xRVUFwRVpCUDdyTGhJdGtX
+            OXppS2c0Y3pQd29JQ1UzMU9WdFlEODQKLS0tIFNvM2Q5UE93N1FNeW8zNGJlQ29z
+            aXMxZkxSWHBXMTJ4b2RTOXJ2WERHUDQKFyyeCaPMC0NNM/KQdTPziH7L8+HTsXvV
+            7WI9gK6vODxz4zEC+owdCEnel/XlW1b53RXiTeFDRia6LrJiq4kTug==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age183ykmjvkndr0mps307aj9c200mrj30ga35cf6wwud53vypvlza8sa2pyu4
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-11-27T13:20:24Z"
+    mac: ENC[AES256_GCM,data:uwLuFwbZ/7oazgr5LuPAZfgowPEXKF+CYCj5tBzeK2wb2PdH0V10nsmJ4J6u2jtCX0YUds2PsCKfkCFfPiSJL6Oh93cEaJ83pmJiFCC7aGOxIuCzIqmVE4qPBE00W3Il7MaAsNVx9NQNTCIQYP7tUDd6DjfGhoJJnbnduhkYeCE=,iv:xg05ChZ8jsUxNYuoIOqstAq+iBboTLLGElglUPdMMgs=,tag:3pDzVPx4hUtDo+YhqzEIWg==,type:str]
+    version: 3.13.3

@@ -9,5 +9,6 @@ resources:
   - namespace.yaml
   - service.yaml
   - dhi-io-secret.yaml
+  - aes-256-cgm.yaml
   - actions-runner-scale-set
   - pre-creation
