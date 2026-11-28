@@ -27,7 +27,7 @@ spec:
       #   fsGroupChangePolicy: "OnRootMismatch"
       containers:
         - name: homarr
-          image: "ghcr.io/homarr-labs/homarr:v2.14.0"
+          image: "ghcr.io/homarr-labs/homarr:v2.15.0"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
